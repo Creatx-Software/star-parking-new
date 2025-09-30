@@ -65,13 +65,11 @@ class ComponentManager {
                 <div class="sidebar-user">
                     <div class="user-profile">
                         <img src="https://via.placeholder.com/50" alt="User Profile" class="user-avatar">
-                        <div class="user-info">
-                            <div class="user-name">
-                                <span>Salman Faris</span>
-                                <i class="fas fa-chevron-down dropdown-arrow"></i>
-                            </div>
+                        <div class="user-text-block">
+                            <div class="user-name">Salman Faris</div>
                             <div class="user-role">Admin</div>
                         </div>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
                     </div>
                 </div>
 

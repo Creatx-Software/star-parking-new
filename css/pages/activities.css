@@ -126,8 +126,8 @@
 /* User Info Styles */
 .user-info {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: left;
+    gap: 0px;
 }
 
 .avatar {
