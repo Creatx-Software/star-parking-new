@@ -68,13 +68,13 @@
     padding: 16px 12px;
     border-radius: 8px;
     border: 1px solid #E9E9E9;
-    background: #F8F8F8;
+    background: #EEEEEE;
     font-family: 'Inter', sans-serif;
     transition: border-color 0.2s ease;
 }
 
 .form-group input::placeholder {
-    color: #B7B7B7;
+    color: #555555;
 }
 
 .form-group input:focus,
@@ -101,7 +101,7 @@
     padding: 16px 12px;
     border-radius: 8px;
     border: 1px solid #E9E9E9;
-    background: #F8F8F8;
+    background: #EEEEEE;
     cursor: pointer;
     transition: border-color 0.2s ease;
 }
@@ -112,7 +112,7 @@
 
 .photo-upload span {
     font-size: 15px;
-    color: #B7B7B7;
+    color: #555555;
     font-family: 'Inter', sans-serif;
 }
 
@@ -124,7 +124,7 @@
     padding: 16px 12px;
     border-radius: 8px;
     border: 1px solid #E9E9E9;
-    background: #F8F8F8;
+    background: #EEEEEE;
     cursor: pointer;
     transition: border-color 0.2s ease;
 }
@@ -135,7 +135,7 @@
 
 .file-upload span {
     font-size: 15px;
-    color: #B7B7B7;
+    color: #555555;
     font-family: 'Inter', sans-serif;
 }
 
@@ -168,7 +168,7 @@
 
 /* Password note */
 .password-note {
-    font-size: 12px;
+    font-size: 14px;
     color: #2F6FE6;
     margin-top: 6px;
     font-family: 'Inter', sans-serif;
