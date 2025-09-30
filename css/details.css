@@ -1,0 +1,332 @@
+/* Import Inter font for form elements only */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Main content layout - inherit from existing styles */
+
+/* Details container */
+.details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    padding-bottom: 60px;
+}
+
+/* Section styles */
+.details-section {
+    margin-bottom: 32px;
+}
+
+.details-section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1E1E1E;
+    margin-bottom: 24px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Form layouts */
+.user-details-form,
+.staff-details-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+}
+
+.document-details-form,
+.add-more-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 32px;
+    margin-bottom: 24px;
+}
+
+/* Form group styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1E1E1E;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.required {
+    color: #F44336;
+    font-size: 16px;
+    margin-left: 3px;
+}
+
+/* Input styles */
+.form-group input,
+.form-group select {
+    font-size: 15px;
+    color: #1E1E1E;
+    padding: 16px 12px;
+    border-radius: 8px;
+    border: 1px solid #E9E9E9;
+    background: #F8F8F8;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #B7B7B7;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2F6FE6;
+}
+
+/* Select dropdown arrow */
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23B7B7B7' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* Photo upload styles */
+.photo-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 12px;
+    border-radius: 8px;
+    border: 1px solid #E9E9E9;
+    background: #F8F8F8;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.photo-upload:hover {
+    border-color: #2F6FE6;
+}
+
+.photo-upload span {
+    font-size: 15px;
+    color: #B7B7B7;
+    font-family: 'Inter', sans-serif;
+}
+
+/* File upload styles */
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 12px;
+    border-radius: 8px;
+    border: 1px solid #E9E9E9;
+    background: #F8F8F8;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.file-upload:hover {
+    border-color: #2F6FE6;
+}
+
+.file-upload span {
+    font-size: 15px;
+    color: #B7B7B7;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Password input with toggle */
+.password-input {
+    position: relative;
+}
+
+.password-input input {
+    padding-right: 48px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    opacity: 0.7;
+}
+
+/* Password note */
+.password-note {
+    font-size: 12px;
+    color: #2F6FE6;
+    margin-top: 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Upload document button */
+.upload-document-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #2F6FE6;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    width: 240px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.upload-document-btn:hover {
+    background: #1e5bc7;
+}
+
+/* Section divider */
+.section-divider {
+    height: 1px;
+    background: #E9E9E9;
+    margin: 32px 0;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 48px;
+    justify-content: flex-start;
+}
+
+.btn-back {
+    border: 1.5px solid #222;
+    background: #fff;
+    color: #222;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-back:hover {
+    background: #222;
+    color: #fff;
+}
+
+.btn-save {
+    background: #2F6FE6;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-save:hover {
+    background: #1e5bc7;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+    .details-container {
+        padding: 0 24px;
+    }
+    
+    .user-details-form,
+    .staff-details-form,
+    .document-details-form,
+    .add-more-form {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    
+    .btn-back,
+    .btn-save {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .upload-document-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .details-container {
+        padding: 0 16px;
+    }
+    
+    .details-section h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 14px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        font-size: 14px;
+        padding: 14px 12px;
+    }
+}
+
+/* Focus styles for accessibility */
+.form-group input:focus,
+.form-group select:focus,
+.photo-upload:focus,
+.file-upload:focus,
+.upload-document-btn:focus,
+.btn-back:focus,
+.btn-save:focus {
+    outline: 2px solid #2F6FE6;
+    outline-offset: 2px;
+}
+
+/* Hover states */
+.form-group input:hover,
+.form-group select:hover {
+    border-color: #2F6FE6;
+}
+
+/* Error states (for future use) */
+.form-group.error input,
+.form-group.error select {
+    border-color: #F44336;
+}
+
+.error-message {
+    font-size: 12px;
+    color: #F44336;
+    margin-top: 4px;
+    font-family: 'Inter', sans-serif;
+}
