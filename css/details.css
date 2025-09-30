@@ -16,23 +16,37 @@
     margin-bottom: 32px;
 }
 
-.details-section h2 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #1E1E1E;
+/* Title bar component */
+.section-title-row {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 16px;
     margin-bottom: 24px;
-    font-family: 'Inter', sans-serif;
 }
 
-/* Section title divider */
-.section-title-divider {
-    width: 1090px;
-    height: 1px;
-    background: linear-gradient(90deg, #000000 0%, #2D2D2D 48.08%, rgba(102, 102, 102, 0) 100%);
-    margin-bottom: 24px;
-    margin-left: 0;
-    opacity: 1;
+.section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.section-divider {
+    margin-top: 12px;
+    height: 2px;
+    width: 100%;
     border: none;
+    background: linear-gradient(to right, #222 0%, #222 35%, rgba(34, 34, 34, 0.05) 100%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .section-title-row {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
 
 /* Form layouts */
