@@ -23,32 +23,22 @@ class ComponentManager {
                     <div class="logo" onclick="window.location.href='${this.getBasePath()}index.html'" style="cursor: pointer;">Star Parking Ltd.</div>
                 </div>
                 <div class="nav-center">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search" class="search-input">
+                    </div>
+                </div>
+                <div class="nav-right">
                     <a href="${this.getBasePath()}pages/home.html" class="nav-link" data-page="home">Home</a>
                     <a href="${this.getBasePath()}pages/activities.html" class="nav-link" data-page="activities">Activities</a>
                     <a href="${this.getBasePath()}pages/history.html" class="nav-link" data-page="history">History</a>
                     <a href="${this.getBasePath()}pages/payout.html" class="nav-link" data-page="payout">Payout</a>
                     <a href="#" class="nav-link">Contact us</a>
-                </div>
-                <div class="nav-right">
-                    <div class="search-container">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search" class="search-input">
-                    </div>
-                    <button class="notification-btn-nav">
-                        <i class="fas fa-bell"></i>
-                    </button>
-                    <button class="export-btn-nav">
-                        <i class="fas fa-download"></i>
-                        Export
-                    </button>
-                    <button class="add-user-btn-nav">
-                        <i class="fas fa-plus"></i>
-                        Add User
+                    <button class="logout-btn-nav" onclick="window.componentManager.handleLogout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
                     </button>
                 </div>
-                <button class="close-btn" id="closeBtn">
-                    <i class="fas fa-times"></i>
-                </button>
             </nav>
         `);
 
@@ -393,6 +383,19 @@ class ComponentManager {
                 console.log('Search query:', query);
                 // Implement search functionality here
             });
+        }
+    }
+
+    /**
+     * Handle logout functionality
+     */
+    handleLogout() {
+        // Show confirmation dialog
+        if (confirm('Are you sure you want to logout?')) {
+            console.log('User logged out from navbar');
+            // Add logout functionality here
+            // For demo purposes, redirect to index page
+            window.location.href = this.getBasePath() + 'index.html';
         }
     }
 
