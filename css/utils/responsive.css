@@ -1,0 +1,232 @@
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .right-sidebar {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        flex-direction: row;
+    }
+    
+    .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .dropdown-filters {
+        flex-wrap: wrap;
+    }
+    
+    .filter-actions {
+        justify-content: flex-end;
+    }
+    
+    .data-table {
+        font-size: 0.8rem;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .calendar-activities-section {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .calendar-widget {
+        flex: none;
+        width: 100%;
+        max-width: 400px;
+        align-self: center;
+    }
+    
+    .events-list {
+        flex: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-center {
+        display: none;
+    }
+    
+    .sidebar {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .main-content {
+        margin-top: 60px;
+        padding: 1rem;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-days {
+        gap: 0;
+    }
+    
+    .calendar-day {
+        min-height: 60px;
+        padding: 0.5rem;
+    }
+    
+    .right-sidebar {
+        flex-direction: column;
+    }
+    
+    .close-btn {
+        display: block;
+    }
+    
+    .filters-container {
+        padding: 1rem 0;
+    }
+    
+    .search-filter {
+        max-width: none;
+    }
+    
+    .dropdown-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-dropdown {
+        min-width: auto;
+    }
+    
+    .filter-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .data-table {
+        min-width: 800px;
+    }
+    
+    .pagination-container {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .calendar-activities-section {
+        gap: 1rem;
+    }
+    
+    .calendar-widget {
+        padding: 1rem;
+        min-width: 260px;
+    }
+    
+    .event-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .event-date {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .event-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .event-description {
+        width: 100%;
+    }
+    
+    .calendar-day {
+        height: 0px;
+        padding: 0;
+        font-size: 0.5rem;
+    }
+    
+    /* Driver Profile Responsive */
+    .driver-profile-content {
+        padding: 1rem;
+    }
+    
+    .profile-main-card {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .profile-left {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .action-buttons-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .action-button {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+    
+    .search-container {
+        display: none;
+    }
+    
+    .calendar-weekdays,
+    .calendar-days {
+        font-size: 0.75rem;
+    }
+    
+    .calendar-day {
+        min-height: 50px;
+        padding: 0.25rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .calendar-widget {
+        min-width: 240px;
+        padding: 0.75rem;
+    }
+    
+    .calendar-day {
+        height: 35px;
+        padding: 0.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .event-item {
+        padding: 0.75rem;
+    }
+    
+    .event-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,88 @@
+/* Stats Cards */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #d3d3d3;
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: blue;
+}
+
+.booking-icon {
+    background: #d5dbf8;
+    color: blue;
+}
+
+.staff-icon {
+    background: #fcf2d6;
+    color: #f6c33f;
+}
+
+.alert-icon {
+    background: #f4d8d8;
+    color: #f25450;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: inherit;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: auto;
+    color: inherit;
+}
+
+.stat-change {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+.stat-change.positive {
+    color: inherit;
+}
+
+.stat-change i {
+    font-size: 0.7rem;
+}

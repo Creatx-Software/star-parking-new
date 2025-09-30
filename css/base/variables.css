@@ -1,0 +1,18 @@
+/* CSS Custom Properties (Variables) */
+:root {
+    /* Status Colors */
+    --status-active: #28a745;
+    --status-inactive: #8b969f;
+    --status-pending: #021247;
+    
+    /* Button Colors */
+    --add-user-btn: #335ae6;
+    --primary-blue: #335ae6;
+    
+    /* Other Colors */
+    --text-primary: #333;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+}

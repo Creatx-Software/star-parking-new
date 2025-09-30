@@ -1,0 +1,203 @@
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: #f3f4f6;
+    border-color: var(--primary-blue);
+}
+
+.btn-success {
+    background: #10b981;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #059669;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.btn-warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+}
+
+.btn-small {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+.btn-large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-rounded {
+    border-radius: 20px;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+}
+
+/* Specific button types */
+.add-user-btn {
+    background: var(--add-user-btn);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.add-user-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(51, 90, 230, 0.3);
+}
+
+.export-btn {
+    background: white;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.export-btn:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-blue);
+}
+
+.notification-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+}
+
+.notification-btn:hover {
+    background: #f3f4f6;
+    color: var(--text-primary);
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #00000080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.action-btn:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.action-btn.view-btn:hover {
+    color: #10b981;
+    background: #ecfdf5;
+}
+
+.action-btn.chart-btn:hover {
+    color: #3b82f6;
+    background: #eff6ff;
+}
+
+.action-btn.location-btn:hover {
+    color: #f59e0b;
+    background: #fffbeb;
+}
+
+.action-btn.message-btn:hover {
+    color: #8b5cf6;
+    background: #f5f3ff;
+}
+
+.action-btn.edit-btn:hover {
+    color: #06b6d4;
+    background: #ecfeff;
+}
+
+.action-btn.delete-btn {
+    color: #ef4444;
+}
+
+.action-btn.delete-btn:hover {
+    color: #dc2626;
+    background: #fef2f2;
+}
