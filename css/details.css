@@ -214,8 +214,11 @@
 .password-note {
     font-size: 14px;
     color: #2F6FE6;
-    margin-top: 6px;
+    margin-top: 8px;
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: nowrap;
 }
 
 /* Upload document button */
