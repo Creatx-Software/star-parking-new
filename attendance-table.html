@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .table-column {
+            flex: 1;
+        }
+
+        .export-column {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .attendance-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .attendance-table thead {
+            background-color: #f0f0f0;
+        }
+
+        .attendance-table th {
+            padding: 15px 20px;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .attendance-table th:first-child {
+            text-align: left;
+            border-top-left-radius: 8px;
+        }
+
+        .attendance-table th:nth-child(2),
+        .attendance-table th:nth-child(3) {
+            text-align: center;
+        }
+
+        .attendance-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .attendance-table tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .attendance-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .attendance-table tbody tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .attendance-table td {
+            padding: 12px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .attendance-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .attendance-table td:nth-child(2),
+        .attendance-table td:nth-child(3) {
+            text-align: center;
+            color: #666;
+        }
+
+        .export-btn {
+            background: white;
+            border: 2px solid #007bff;
+            color: #007bff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .export-btn:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .export-btn:active {
+            transform: translateY(0);
+        }
+
+        .export-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .layout {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .export-column {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .attendance-table th,
+            .attendance-table td {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .export-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                margin: 5px;
+            }
+
+            .attendance-table th,
+            .attendance-table td {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+
+            .attendance-table th:first-child,
+            .attendance-table td:first-child {
+                min-width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="layout">
+            <!-- Table Column -->
+            <div class="table-column">
+                <table class="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Check-In</th>
+                            <th>Check-Out</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mon 13 Sep</td>
+                            <td>09:34 AM</td>
+                            <td>17:34 AM</td>
+                        </tr>
+                        <tr>
+                            <td>Mon 14 Sep</td>
+                            <td>09:24 AM</td>
+                            <td>16:34 AM</td>
+                        </tr>
+                        <tr>
+                            <td>Mon 15 Sep</td>
+                            <td>09:14 AM</td>
+                            <td>18:34 AM</td>
+                        </tr>
+                        <tr>
+                            <td>Mon 16 Sep</td>
+                            <td>09:36 AM</td>
+                            <td>17:39 AM</td>
+                        </tr>
+                        <tr>
+                            <td>Mon 17 Sep</td>
+                            <td>09:32 AM</td>
+                            <td>17:44 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Export Button Column -->
+            <div class="export-column">
+                <button class="export-btn" onclick="exportData()">
+                    <svg class="export-icon" viewBox="0 0 24 24">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    </svg>
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function exportData() {
+            // Get table data
+            const table = document.querySelector('.attendance-table');
+            const rows = table.querySelectorAll('tr');
+            
+            let csvContent = '';
+            
+            // Process each row
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('th, td');
+                const rowData = Array.from(cells).map(cell => {
+                    // Clean up the text content and handle commas
+                    return '"' + cell.textContent.trim().replace(/"/g, '""') + '"';
+                });
+                csvContent += rowData.join(',') + '\n';
+            });
+            
+            // Create and download the file
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            
+            if (link.download !== undefined) {
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', 'attendance_data.csv');
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+            
+            // Show feedback to user
+            const originalText = document.querySelector('.export-btn').innerHTML;
+            document.querySelector('.export-btn').innerHTML = `
+                <svg class="export-icon" viewBox="0 0 24 24">
+                    <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                </svg>
+                Exported!
+            `;
+            
+            setTimeout(() => {
+                document.querySelector('.export-btn').innerHTML = originalText;
+            }, 2000);
+        }
+
+        // Add some interactive feedback
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableRows = document.querySelectorAll('.attendance-table tbody tr');
+            
+            tableRows.forEach(row => {
+                row.addEventListener('click', function() {
+                    // Remove previous selection
+                    tableRows.forEach(r => r.style.backgroundColor = '');
+                    
+                    // Highlight selected row
+                    this.style.backgroundColor = '#e3f2fd';
+                    
+                    // Remove highlight after 2 seconds
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
