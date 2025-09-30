@@ -24,18 +24,29 @@
     font-family: 'Inter', sans-serif;
 }
 
+/* Section title divider */
+.section-title-divider {
+    width: 1090px;
+    height: 1px;
+    background: linear-gradient(90deg, #000000 0%, #2D2D2D 48.08%, rgba(102, 102, 102, 0) 100%);
+    margin-bottom: 24px;
+    margin-left: 0;
+    opacity: 1;
+    border: none;
+}
+
 /* Form layouts */
 .user-details-form {
     display: grid;
     grid-template-columns: 336px 336px;
-    gap: 20px 24px;
+    gap: 20px 198px;
     align-items: start;
 }
 
 .staff-details-form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px 32px;
+    grid-template-columns: 336px 336px;
+    gap: 24px 198px;
 }
 
 .document-details-form,
