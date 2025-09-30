@@ -21,8 +21,6 @@ class ComponentManager {
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="logo" onclick="window.location.href='${this.getBasePath()}index.html'" style="cursor: pointer;">Star Parking Ltd.</div>
-                </div>
-                <div class="nav-center">
                     <div class="search-container">
                         <i class="fas fa-search"></i>
                         <input type="text" placeholder="Search" class="search-input">
@@ -36,7 +34,7 @@ class ComponentManager {
                     <a href="#" class="nav-link">Contact us</a>
                     <button class="logout-btn-nav" onclick="window.componentManager.handleLogout()">
                         <i class="fas fa-sign-out-alt"></i>
-                        Logout
+                        
                     </button>
                 </div>
             </nav>

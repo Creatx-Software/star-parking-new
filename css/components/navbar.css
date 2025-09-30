@@ -18,6 +18,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex: 1;
 }
 
 .hamburger-menu {
@@ -61,15 +62,6 @@
     text-decoration: none;
 }
 
-.nav-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    max-width: 400px;
-    margin: 0 2rem;
-}
-
 .nav-right {
     display: flex;
     align-items: center;
@@ -100,19 +92,20 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 250px;
+    margin-left: 1rem;
 }
 
 .search-container i {
     position: absolute;
     left: 0.75rem;
-    color: #9ca3af;
+    color: white;
     z-index: 1;
 }
 
 .search-input {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #335ae6;
+    border: 1px solid white;
     border-radius: 6px;
     padding: 0.5rem 0.75rem 0.5rem 2.5rem;
     color: white;
@@ -128,7 +121,7 @@
 .search-input:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: white;
 }
 
 .export-btn-nav {
@@ -153,11 +146,9 @@
 }
 
 .logout-btn-nav {
-    background: rgba(255, 0, 0, 0.1);
     color: white;
-    border: 1px solid rgba(255, 0, 0, 0.3);
     padding: 0.5rem 1rem;
-    border-radius: 6px;
+    border: none;
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.2s;
@@ -165,6 +156,7 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: 500;
+    background-color: #335ae6;
 }
 
 .logout-btn-nav:hover {
