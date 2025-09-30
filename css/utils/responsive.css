@@ -55,13 +55,21 @@
     }
     
     .sidebar {
-        top: 60px;
-        height: calc(100vh - 60px);
+        top: 0;
+        height: 100vh;
+        width: 260px; /* Slightly smaller on mobile */
+        padding-top: 60px; /* Account for smaller navbar on mobile */
     }
     
     .main-content {
         margin-top: 60px;
         padding: 1rem;
+        /* Content stays in place - no margin adjustments */
+    }
+    
+    .sidebar-overlay {
+        top: 0; /* Full screen overlay */
+        height: 100vh;
     }
     
     .stats-container {

@@ -2,11 +2,7 @@
 .main-content {
     margin-top: 70px;
     padding: 2rem;
-    transition: margin-left 0.3s ease;
-}
-
-.main-content.sidebar-open {
-    margin-left: 280px;
+    /* Removed margin-left transition - content should stay in place */
 }
 
 .page-content {
