@@ -1146,3 +1146,75 @@ window.starParkingApp = {
     exportTableData,
     showAddUserModal
 };
+
+// Payroll Section Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize payroll functionality if on salary-deduction page
+    if (window.location.pathname.includes('salary-deduction.html')) {
+        initializePayrollSection();
+    }
+});
+
+function initializePayrollSection() {
+    // Handle select all checkbox
+    const selectAllCheckbox = document.querySelector('.select-all');
+    const rowCheckboxes = document.querySelectorAll('.row-select');
+    
+    if (selectAllCheckbox) {
+        selectAllCheckbox.addEventListener('change', function() {
+            rowCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+    }
+    
+    // Handle individual row checkboxes
+    rowCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const checkedBoxes = document.querySelectorAll('.row-select:checked');
+            selectAllCheckbox.checked = checkedBoxes.length === rowCheckboxes.length;
+            selectAllCheckbox.indeterminate = checkedBoxes.length > 0 && checkedBoxes.length < rowCheckboxes.length;
+        });
+    });
+    
+    // Handle search functionality
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            filterPayrollTable(this.value);
+        });
+    }
+    
+    // Handle payment plan dropdowns
+    const paymentPlanDropdowns = document.querySelectorAll('.payment-plan-dropdown');
+    paymentPlanDropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function() {
+            // Toggle dropdown menu (implement dropdown logic here)
+            console.log('Payment plan dropdown clicked');
+        });
+    });
+    
+    // Handle action buttons
+    const actionButtons = document.querySelectorAll('.action-btn');
+    actionButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            // Show action menu (implement context menu here)
+            console.log('Action button clicked');
+        });
+    });
+}
+
+function filterPayrollTable(searchTerm) {
+    const tableRows = document.querySelectorAll('.payroll-table tbody tr');
+    const searchLower = searchTerm.toLowerCase();
+    
+    tableRows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (rowText.includes(searchLower)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
