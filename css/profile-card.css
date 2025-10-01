@@ -1,0 +1,232 @@
+/* Profile Card - Highly Specific Scoped Styles to Prevent Any Navbar Conflicts */
+
+/* Only target elements within the profile page main content */
+body .main-content .profile-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 24px auto;
+}
+
+/* Profile Header Section */
+body .main-content .profile-card .profile-header {
+    display: grid;
+    grid-template-columns: 120px 1fr 200px;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+body .main-content .profile-card .profile-photo {
+    position: relative;
+}
+
+body .main-content .profile-card .profile-photo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0f0f0;
+}
+
+body .main-content .profile-card .logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .main-content .profile-card .logo-label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+body .main-content .profile-card .profile-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+body .main-content .profile-card .update-profile-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+body .main-content .profile-card .update-profile-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+body .main-content .profile-card .qr-code {
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 8px;
+    background: white;
+}
+
+/* Profile Information Section */
+body .main-content .profile-card .profile-info {
+    margin-bottom: 32px;
+}
+
+body .main-content .profile-card .info-row {
+    display: grid;
+    grid-template-columns: 120px 20px 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+    align-items: center;
+}
+
+body .main-content .profile-card .info-row:last-child {
+    border-bottom: none;
+}
+
+body .main-content .profile-card .info-label {
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+body .main-content .profile-card .info-separator {
+    font-weight: 500;
+    color: #666;
+    text-align: center;
+}
+
+body .main-content .profile-card .info-value {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Documents Section */
+body .main-content .profile-card .documents-section {
+    margin-top: 32px;
+}
+
+body .main-content .profile-card .documents-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+body .main-content .profile-card .documents-divider {
+    height: 2px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    margin-bottom: 24px;
+    border-radius: 1px;
+}
+
+body .main-content .profile-card .documents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+body .main-content .profile-card .document-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #fafafa;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+body .main-content .profile-card .document-item:hover {
+    background: #f0f0f0;
+}
+
+body .main-content .profile-card .document-icon {
+    flex-shrink: 0;
+}
+
+body .main-content .profile-card .document-name {
+    flex-grow: 1;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+body .main-content .profile-card .eye-icon {
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+body .main-content .profile-card .eye-icon:hover {
+    opacity: 0.7;
+}
+
+/* Responsive Design - Ultra Specific */
+@media (max-width: 768px) {
+    body .main-content .profile-card {
+        margin: 16px;
+        padding: 24px;
+    }
+    
+    body .main-content .profile-card .profile-header {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+    }
+    
+    body .main-content .profile-card .profile-actions {
+        align-items: center;
+    }
+    
+    body .main-content .profile-card .info-row {
+        grid-template-columns: 100px 20px 1fr;
+        gap: 12px;
+    }
+    
+    body .main-content .profile-card .documents-list {
+        gap: 12px;
+    }
+    
+    body .main-content .profile-card .document-item {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body .main-content .profile-card .profile-photo img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    body .main-content .profile-card .info-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: left;
+    }
+    
+    body .main-content .profile-card .info-separator {
+        display: none;
+    }
+    
+    body .main-content .profile-card .info-label {
+        font-weight: 600;
+        color: #667eea;
+    }
+    
+    body .main-content .profile-card .info-value {
+        margin-left: 0;
+        padding-bottom: 8px;
+    }
+}
