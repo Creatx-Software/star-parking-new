@@ -3,11 +3,10 @@
 
 /* Main content layout - inherit from existing styles */
 
-/* Details container */
+/* Details container - using same layout as home page */
 .details-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 48px;
+    /* Remove fixed width and use same padding as main-content */
+    padding: 0;
     padding-bottom: 60px;
 }
 
@@ -20,13 +19,14 @@
 .section-title-row {
     margin-top: 16px;
     margin-bottom: 24px;
+    padding-left: 30px;
 }
 
 .section-title {
     font-family: 'Inter', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    color: #222;
+    font-size: 22px;
+    font-weight: 500;
+    color: #000000;
     margin-bottom: 0 !important;
     text-align: left;
 }
@@ -56,12 +56,14 @@
     grid-template-columns: 336px 336px;
     gap: 20px 198px;
     align-items: start;
+    padding-left: 50px;
 }
 
 .staff-details-form {
     display: grid;
     grid-template-columns: 336px 336px;
     gap: 24px 198px;
+    padding-left: 50px;
 }
 
 .document-details-form,
@@ -70,6 +72,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 24px 32px;
     margin-bottom: 24px;
+    padding-left: 50px;
 }
 
 /* Form group styles */
@@ -80,7 +83,7 @@
 
 .form-group label {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     color: #555555;
     margin-bottom: 8px;
     font-family: 'Inter', sans-serif;
@@ -95,7 +98,7 @@
 /* Input styles */
 .form-group input,
 .form-group select {
-    font-size: 15px;
+    font-size: 14px;
     color: #1E1E1E;
     padding: 12px 16px;
     border-radius: 8px;
@@ -227,7 +230,7 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: #2F6FE6;
+    background: #4d57e4;
     color: white;
     font-size: 16px;
     font-weight: 500;
@@ -299,7 +302,7 @@
 /* Responsive design */
 @media (max-width: 900px) {
     .details-container {
-        padding: 0 24px;
+        padding: 0;
     }
     
     .user-details-form,
@@ -330,7 +333,7 @@
 
 @media (max-width: 768px) {
     .details-container {
-        padding: 0 16px;
+        padding: 0;
     }
     
     .details-section h2 {

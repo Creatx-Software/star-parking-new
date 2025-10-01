@@ -4,7 +4,7 @@
         <button class="hamburger-menu" id="hamburgerMenu">
             <i class="fas fa-bars"></i>
         </button>
-        <a href="../index.html" class="logo">Star Parking Ltd.</a>
+        <div class="logo" onclick="window.location.href='../index.html'" style="cursor: pointer;">Star Parking Ltd.</div>
         <div class="search-container">
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Search" class="search-input">
@@ -16,8 +16,9 @@
         <a href="history.html" class="nav-link" data-page="history">History</a>
         <a href="payout.html" class="nav-link" data-page="payout">Payout</a>
         <a href="#" class="nav-link">Contact us</a>
-        <button class="export-btn-nav">
-            <i class="fas fa-external-link-alt"></i>
+        <button class="logout-btn-nav" onclick="window.componentManager.handleLogout()">
+            <i class="fas fa-sign-out-alt"></i>
+            
         </button>
     </div>
 </nav>
