@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Star Parking Ltd.</title>
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/profile-card.css">
+    <link rel="stylesheet" href="../css/pages/profile-card.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,37 +16,41 @@
     <div id="sidebar-container"></div>
     <main class="main-content">
         <div class="profile-card">
+            <!-- First Row: Logo and Update Profile Button -->
+            <div class="profile-header-top">
+                <div class="logo-section">
+                    <div class="logo-label">LOGO</div>
+                </div>
+                <div class="profile-actions">
+                    <button class="update-profile-btn">Update Profile</button>
+                </div>
+            </div>
+            
+            <!-- Second Row: Profile Photo and QR Code -->
             <div class="profile-header">
                 <div class="profile-photo">
                     <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&crop=face&auto=format" alt="Profile Photo" />
                 </div>
                 
-                <div class="logo-section">
-                    <div class="logo-label">LOGO</div>
-                </div>
-                
-                <div class="profile-actions">
-                    <button class="update-profile-btn">Update Profile</button>
-                    <div class="qr-code">
-                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="80" height="80" fill="white"/>
-                            <rect x="5" y="5" width="20" height="20" fill="black"/>
-                            <rect x="55" y="5" width="20" height="20" fill="black"/>
-                            <rect x="5" y="55" width="20" height="20" fill="black"/>
-                            <rect x="10" y="10" width="10" height="10" fill="white"/>
-                            <rect x="60" y="10" width="10" height="10" fill="white"/>
-                            <rect x="10" y="60" width="10" height="10" fill="white"/>
-                            <rect x="35" y="35" width="10" height="10" fill="black"/>
-                            <rect x="15" y="35" width="5" height="5" fill="black"/>
-                            <rect x="25" y="35" width="5" height="5" fill="black"/>
-                            <rect x="35" y="15" width="5" height="5" fill="black"/>
-                            <rect x="45" y="25" width="5" height="5" fill="black"/>
-                            <rect x="35" y="55" width="5" height="5" fill="black"/>
-                            <rect x="45" y="65" width="5" height="5" fill="black"/>
-                            <rect x="55" y="35" width="5" height="5" fill="black"/>
-                            <rect x="65" y="45" width="5" height="5" fill="black"/>
-                        </svg>
-                    </div>
+                <div class="qr-code">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0" y="0" width="80" height="80" fill="white"/>
+                        <rect x="5" y="5" width="20" height="20" fill="black"/>
+                        <rect x="55" y="5" width="20" height="20" fill="black"/>
+                        <rect x="5" y="55" width="20" height="20" fill="black"/>
+                        <rect x="10" y="10" width="10" height="10" fill="white"/>
+                        <rect x="60" y="10" width="10" height="10" fill="white"/>
+                        <rect x="10" y="60" width="10" height="10" fill="white"/>
+                        <rect x="35" y="35" width="10" height="10" fill="black"/>
+                        <rect x="15" y="35" width="5" height="5" fill="black"/>
+                        <rect x="25" y="35" width="5" height="5" fill="black"/>
+                        <rect x="35" y="15" width="5" height="5" fill="black"/>
+                        <rect x="45" y="25" width="5" height="5" fill="black"/>
+                        <rect x="35" y="55" width="5" height="5" fill="black"/>
+                        <rect x="45" y="65" width="5" height="5" fill="black"/>
+                        <rect x="55" y="35" width="5" height="5" fill="black"/>
+                        <rect x="65" y="45" width="5" height="5" fill="black"/>
+                    </svg>
                 </div>
             </div>
             

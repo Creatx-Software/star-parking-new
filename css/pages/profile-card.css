@@ -11,28 +11,17 @@ body .main-content .profile-card {
     margin: 24px auto;
 }
 
-/* Profile Header Section */
-body .main-content .profile-card .profile-header {
-    display: grid;
-    grid-template-columns: 120px 1fr 200px;
-    gap: 32px;
+/* Profile Header Top Section - Logo and Update Profile Button */
+body .main-content .profile-card .profile-header-top {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
-}
-
-body .main-content .profile-card .profile-photo {
-    position: relative;
-}
-
-body .main-content .profile-card .profile-photo img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #f0f0f0;
+    margin-bottom: 24px;
+    padding: 16px 0;
 }
 
 body .main-content .profile-card .logo-section {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,9 +39,7 @@ body .main-content .profile-card .logo-label {
 
 body .main-content .profile-card .profile-actions {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 16px;
+    align-items: center;
 }
 
 body .main-content .profile-card .update-profile-btn {
@@ -69,6 +56,27 @@ body .main-content .profile-card .update-profile-btn {
 body .main-content .profile-card .update-profile-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Profile Header Section - Photo and QR Code */
+body .main-content .profile-card .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding: 16px 0;
+}
+
+body .main-content .profile-card .profile-photo {
+    position: relative;
+}
+
+body .main-content .profile-card .profile-photo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0f0f0;
 }
 
 body .main-content .profile-card .qr-code {
@@ -180,14 +188,16 @@ body .main-content .profile-card .eye-icon:hover {
         padding: 24px;
     }
     
-    body .main-content .profile-card .profile-header {
-        grid-template-columns: 1fr;
-        gap: 24px;
+    body .main-content .profile-card .profile-header-top {
+        flex-direction: column;
+        gap: 16px;
         text-align: center;
     }
     
-    body .main-content .profile-card .profile-actions {
-        align-items: center;
+    body .main-content .profile-card .profile-header {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
     }
     
     body .main-content .profile-card .info-row {
