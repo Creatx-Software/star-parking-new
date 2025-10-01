@@ -3,7 +3,7 @@
 /* Table Container */
 .table-container {
     background: white;
-    border-radius: 50px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
@@ -25,7 +25,15 @@
     color: #000000;
     border: none;
     white-space: nowrap;
-    
+}
+
+/* Add rounded corners to first and last header cells */
+.data-table th:first-child {
+    border-top-left-radius: 20px;
+}
+
+.data-table th:last-child {
+    border-top-right-radius: 20px;
 }
 
 
