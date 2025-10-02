@@ -1,0 +1,345 @@
+/* Salary Deduction Page Styles */
+
+/* Payroll Section Styles */
+.payroll-section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.search-container {
+    position: relative;
+    width: 250px;
+}
+
+.search-container i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: white;
+    transition: all 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(51, 90, 230, 0.1);
+}
+
+.search-input::placeholder {
+    color: #9ca3af;
+}
+
+.payroll-table-container {
+    overflow-x: auto;
+}
+
+.payroll-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.payroll-table th {
+    background: #f8f9fa;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.payroll-table th i {
+    margin-left: 0.5rem;
+    color: #9ca3af;
+    font-size: 0.75rem;
+}
+
+.payroll-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.payroll-table tbody tr:hover {
+    background: #fafbfc;
+}
+
+.payroll-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Checkbox Styles */
+.select-all,
+.row-select {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    cursor: pointer;
+    accent-color: var(--primary-blue);
+}
+
+/* Amount Styles */
+.amount-red {
+    color: #dc2626 !important;
+    font-weight: 600 !important;
+}
+
+/* Status Badge Styles for Payroll */
+.status-badge.paid {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.status-badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+/* Payment Plan Dropdown */
+.payment-plan-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 140px;
+    position: relative;
+}
+
+.payment-plan-dropdown:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.payment-plan-dropdown.active {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.payment-plan-dropdown span {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.payment-plan-dropdown i {
+    color: #64748b;
+    font-size: 0.75rem;
+    transition: transform 0.2s;
+}
+
+.payment-plan-dropdown.active i {
+    transform: rotate(180deg);
+}
+
+/* Payment Plan Menu */
+.payment-plan-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: 4px;
+}
+
+.payment-plan-menu div {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 0.2s;
+}
+
+.payment-plan-menu div:last-child {
+    border-bottom: none;
+}
+
+.payment-plan-menu div:hover {
+    background: #f9fafb;
+}
+
+/* Action Button */
+.action-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    position: relative;
+}
+
+.action-btn:hover {
+    background: #f1f5f9;
+    color: var(--text-primary);
+}
+
+.action-btn i {
+    font-size: 1rem;
+}
+
+/* Action Menu */
+.action-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: 4px;
+    min-width: 150px;
+}
+
+.action-menu div {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.action-menu div:last-child {
+    border-bottom: none;
+}
+
+.action-menu div:hover {
+    background: #f9fafb;
+}
+
+.action-menu i {
+    font-size: 0.8rem;
+    width: 16px;
+    color: #6b7280;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .search-container {
+        width: 100%;
+    }
+    
+    .payroll-table-container {
+        overflow-x: scroll;
+    }
+    
+    .payroll-table th,
+    .payroll-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .payment-plan-dropdown {
+        min-width: 120px;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .payment-plan-dropdown span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .payroll-section {
+        margin-top: 1rem;
+        border-radius: 8px;
+    }
+    
+    .section-header {
+        padding: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .payroll-table th,
+    .payroll-table td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .status-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        min-width: 50px;
+        width: 50px;
+    }
+    
+    .action-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .action-btn i {
+        font-size: 0.875rem;
+    }
+}

@@ -25,6 +25,7 @@
 @import 'pages/driver-profile.css';
 @import 'pages/activities.css';
 @import 'pages/history.css';
+@import 'pages/salary-deduction.css';
 
 /* Utility Styles */
 @import 'utils/utilities.css';
