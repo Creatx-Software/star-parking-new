@@ -21,9 +21,9 @@ class ComponentManager {
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="logo" onclick="window.location.href='${this.getBasePath()}index.html'" style="cursor: pointer;">Star Parking Ltd.</div>
-                    <div class="search-container">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search" class="search-input">
+                    <div class="navbar-search-container">
+                        <i class="fas fa-search navbar-search-icon"></i>
+                        <input type="text" placeholder="Search" class="navbar-search-input">
                     </div>
                 </div>
                 <div class="nav-right">
@@ -374,7 +374,7 @@ class ComponentManager {
      * Initialize search functionality
      */
     initializeSearch() {
-        const searchInput = document.querySelector('.search-input');
+        const searchInput = document.querySelector('.navbar-search-input');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase();

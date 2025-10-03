@@ -972,7 +972,7 @@ function addEventListeners() {
     }
 
     // Search functionality for navbar
-    const navSearchInput = document.querySelector('.search-input');
+    const navSearchInput = document.querySelector('.navbar-search-input');
     if (navSearchInput) {
         navSearchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();

@@ -1,7 +1,12 @@
 /* Activities Page Styles */
+.main-content {
+    background-color: white;
+    min-height: calc(100vh - 70px);
+    padding: 2rem !important;
+}
 
 .activities-container {
-    padding: 20px;
+    /* padding: 20px; */
     max-width: 100%;
     margin: 0 auto;
 }
