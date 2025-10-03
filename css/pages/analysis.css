@@ -1,10 +1,22 @@
+/* Override main-content styles for dashboard */
+.main-content {
+    margin-top: 70px !important;
+    padding: 0 !important;
+    background-color: #F8F9FA !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
 /* Dashboard Container */
 .dashboard-container {
     padding: 24px;
     background-color: #F8F9FA;
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
     max-width: 1400px;
     margin: 0 auto;
+    /* Debug: This should make it visible if CSS is loading */
+    border: 3px solid red;
 }
 
 /* Dashboard Header */
