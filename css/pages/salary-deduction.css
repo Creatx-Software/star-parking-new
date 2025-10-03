@@ -26,7 +26,7 @@
     margin: 0;
 }
 
-.search-container {
+/* .search-container {
     position: relative;
     width: 250px;
 }
@@ -59,7 +59,7 @@
 
 .search-input::placeholder {
     color: #9ca3af;
-}
+} */
 
 .payroll-table-container {
     overflow-x: auto;

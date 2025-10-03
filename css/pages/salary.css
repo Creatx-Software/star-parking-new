@@ -300,7 +300,7 @@
 
 .search-container input::placeholder {
     color: #9ca3af;
-}
+} 
 
 .department-filter, .status-filter {
     padding: 0.5rem 0.75rem;

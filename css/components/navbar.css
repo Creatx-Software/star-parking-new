@@ -99,7 +99,7 @@
 .search-container i {
     position: absolute;
     left: 0.75rem;
-    color: white;
+    color: red;
     z-index: 1;
 }
 
