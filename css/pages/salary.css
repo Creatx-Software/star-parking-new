@@ -1,10 +1,7 @@
 /* Payroll Dashboard Styles - Exact Design Match */
 
-/* Main Content Layout */
+/* Main Content Layout - Use base styles for consistent layout */
 .main-content {
-    margin-left: 260px;
-    margin-top: 70px;
-    padding: 2rem;
     background-color: #f8fafc;
     min-height: calc(100vh - 70px);
 }
@@ -427,7 +424,6 @@
 
 @media (max-width: 1024px) {
     .main-content {
-        margin-left: 0;
         padding: 1.5rem;
     }
     
@@ -534,14 +530,7 @@
     }
 }
 
-/* Main Content Layout */
-.main-content {
-    margin-left: 260px;
-    margin-top: 70px;
-    padding: 2rem;
-    background-color: #f8fafc;
-    min-height: calc(100vh - 70px);
-}
+/* Main Content Layout - Removed duplicate, using base styles */
 
 .dashboard-header {
     margin-bottom: 2rem;
@@ -1070,7 +1059,6 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
     .main-content {
-        margin-left: 0;
         padding: 1.5rem;
     }
     
