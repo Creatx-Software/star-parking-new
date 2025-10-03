@@ -142,9 +142,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
+    background: white;
+    border-radius: 4px;
     padding: 0.5rem 0.75rem;
     cursor: pointer;
     transition: all 0.2s;
@@ -153,8 +152,8 @@
 }
 
 .payment-plan-dropdown:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
+    border-color: #3b82f6;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .payment-plan-dropdown.active {
@@ -164,14 +163,16 @@
 
 .payment-plan-dropdown span {
     font-size: 0.875rem;
-    color: var(--text-primary);
-    font-weight: 500;
+    color: #374151;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
 }
 
 .payment-plan-dropdown i {
-    color: #64748b;
-    font-size: 0.75rem;
+    color: #3b82f6;
+    font-size: 0.875rem;
     transition: transform 0.2s;
+    margin-left: 0.5rem;
 }
 
 .payment-plan-dropdown.active i {
@@ -186,10 +187,11 @@
     right: 0;
     background: white;
     border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 1000;
-    margin-top: 4px;
+    margin-top: 2px;
+    overflow: hidden;
 }
 
 .payment-plan-menu div {
@@ -199,6 +201,7 @@
     color: #374151;
     border-bottom: 1px solid #f3f4f6;
     transition: background-color 0.2s;
+    font-family: 'Poppins', sans-serif;
 }
 
 .payment-plan-menu div:last-child {
@@ -206,7 +209,8 @@
 }
 
 .payment-plan-menu div:hover {
-    background: #f9fafb;
+    background: #f8fafc;
+    color: #1f2937;
 }
 
 /* Action Button */
