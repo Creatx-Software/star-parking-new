@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages/home.css">
 </head>
 <body>
     <!-- Navigation will be loaded here -->
@@ -57,9 +58,82 @@
                 </div>
             </div>
             <div class="filter-actions">
-                <button class="notification-btn">
-                    <i class="fas fa-bell"></i>
-                </button>
+                <div class="notification-container">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <!-- Notification Popup -->
+                    <div class="notification-popup" id="notificationPopup">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <button class="close-popup-btn" id="closePopupBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item">
+                                <div class="notification-avatar">
+                                    <img src="https://i.pravatar.cc/40?img=1" alt="Alfred">
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-time">9 hours ago • Adtham Designs</div>
+                                    <div class="notification-message">Alfred has asked for Gordan's approval</div>
+                                    <div class="notification-actions">
+                                        <button class="dismiss-btn">Dismiss</button>
+                                        <button class="approve-btn">Approve</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status active"></div>
+                            </div>
+                            
+                            <div class="notification-item">
+                                <div class="notification-avatar">
+                                    <img src="https://i.pravatar.cc/40?img=2" alt="Irfan">
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-time">12 hours ago</div>
+                                    <div class="notification-message">Irfan commented under # Landing Pages</div>
+                                    <div class="notification-text">@meAarav, Please check the new Pricing Section Design, under Landing pages... <span class="read-more">Read More</span></div>
+                                    <div class="notification-reply">
+                                        <input type="text" placeholder="Reply @irfan02" class="reply-input">
+                                        <button class="send-btn">Send</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status active"></div>
+                            </div>
+                            
+                            <div class="notification-item">
+                                <div class="notification-avatar">
+                                    <img src="https://i.pravatar.cc/40?img=3" alt="Aashna">
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-time">2 days ago • Client Onboarding</div>
+                                    <div class="notification-message">Aashna uploaded a new document</div>
+                                    <div class="notification-file">
+                                        <div class="file-icon">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div class="file-info">
+                                            <div class="file-name">Client Proposal Docs v2.docx</div>
+                                            <div class="file-size">6.5 MB</div>
+                                        </div>
+                                        <button class="file-menu-btn">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="notification-status"></div>
+                            </div>
+                        </div>
+                        <div class="notification-footer">
+                            <button class="mark-read-btn">
+                                <i class="fas fa-check"></i>
+                                Mark all as read
+                            </button>
+                            <button class="view-all-btn">View all notifications</button>
+                        </div>
+                    </div>
+                </div>
                 <button class="export-btn">
                     <i class="fas fa-download"></i>
                     Export
