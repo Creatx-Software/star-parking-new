@@ -3,6 +3,97 @@ let currentDate = new Date();
 let currentMonth = 8; // September (0-indexed)
 let currentYear = 2025;
 
+// Notification popup functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const notificationBtn = document.getElementById('notificationBtn');
+    const notificationPopup = document.getElementById('notificationPopup');
+    const closePopupBtn = document.getElementById('closePopupBtn');
+
+    if (notificationBtn && notificationPopup) {
+        // Toggle notification popup
+        notificationBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            notificationPopup.classList.toggle('show');
+        });
+
+        // Close popup when clicking the close button
+        if (closePopupBtn) {
+            closePopupBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                notificationPopup.classList.remove('show');
+            });
+        }
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!notificationPopup.contains(e.target) && !notificationBtn.contains(e.target)) {
+                notificationPopup.classList.remove('show');
+            }
+        });
+
+        // Prevent popup from closing when clicking inside it
+        notificationPopup.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Handle notification actions
+        const dismissBtns = document.querySelectorAll('.dismiss-btn');
+        const approveBtns = document.querySelectorAll('.approve-btn');
+        const sendBtns = document.querySelectorAll('.send-btn');
+        const markReadBtn = document.querySelector('.mark-read-btn');
+        const viewAllBtn = document.querySelector('.view-all-btn');
+
+        dismissBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const notificationItem = btn.closest('.notification-item');
+                notificationItem.style.opacity = '0.5';
+                setTimeout(() => {
+                    notificationItem.remove();
+                }, 300);
+            });
+        });
+
+        approveBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                btn.textContent = 'Approved';
+                btn.style.background = '#22c55e';
+                btn.disabled = true;
+            });
+        });
+
+        sendBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const replyInput = btn.previousElementSibling;
+                if (replyInput.value.trim()) {
+                    replyInput.value = '';
+                    btn.textContent = 'Sent';
+                    btn.style.background = '#22c55e';
+                    setTimeout(() => {
+                        btn.textContent = 'Send';
+                        btn.style.background = '#4f46e5';
+                    }, 2000);
+                }
+            });
+        });
+
+        if (markReadBtn) {
+            markReadBtn.addEventListener('click', function() {
+                const activeStatuses = document.querySelectorAll('.notification-status.active');
+                activeStatuses.forEach(status => {
+                    status.classList.remove('active');
+                });
+            });
+        }
+
+        if (viewAllBtn) {
+            viewAllBtn.addEventListener('click', function() {
+                console.log('View all notifications clicked');
+                // Add navigation logic here
+            });
+        }
+    }
+});
+
 // Sample data for the data table
 const userData = [
     {
@@ -853,12 +944,7 @@ function addEventListeners() {
     }
     
     // Action buttons in filters
-    const notificationBtn = document.querySelector('.notification-btn');
-    if (notificationBtn) {
-        notificationBtn.addEventListener('click', function() {
-            alert('Notifications feature coming soon!');
-        });
-    }
+    // Notification button functionality is handled in the DOMContentLoaded event above
     
     const exportBtn = document.querySelector('.export-btn');
     if (exportBtn) {
