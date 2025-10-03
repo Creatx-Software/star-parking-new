@@ -9,22 +9,226 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div id="navbar-container"></div>
     <div id="sidebar-container"></div>
     <main class="main-content">
-        <div class="dashboard-header">
-            <h1>Analysis & Reports</h1>
-        </div>
-        <div class="page-content">
-            <div class="content-card">
-                <h2>Data Analysis</h2>
-                <p>View comprehensive reports and analytics.</p>
+        <div class="dashboard-container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <h1>Analysis & Reports</h1>
+                <div class="dashboard-filters">
+                    <select class="dashboard-filter-dropdown">
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                    </select>
+                    <button class="dashboard-export-btn">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards Row -->
+            <div class="dashboard-stats-row">
+                <div class="dashboard-stat-card">
+                    <div class="dashboard-stat-content">
+                        <h3>£1845.50</h3>
+                        <p>Total Revenue</p>
+                        <div class="dashboard-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>15.6%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-stat-card">
+                    <div class="dashboard-stat-content">
+                        <h3>60</h3>
+                        <p>Total Trip</p>
+                        <div class="dashboard-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12.5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-stat-card">
+                    <div class="dashboard-stat-content">
+                        <h3>04</h3>
+                        <p>Repeat Passengers</p>
+                        <div class="dashboard-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>11.6%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-stat-card">
+                    <div class="dashboard-stat-content">
+                        <h3>88h</h3>
+                        <p>Total Hours</p>
+                        <div class="dashboard-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>5.6%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Content -->
+            <div class="dashboard-main-grid">
+                <!-- Left Column - Charts -->
+                <div class="dashboard-left-column">
+                    <!-- Earnings Summary -->
+                    <div class="dashboard-chart-card">
+                        <div class="dashboard-chart-header">
+                            <h3>Earnings Summary</h3>
+                            <select class="dashboard-period-dropdown">
+                                <option>Jan 2025 - Jun 2025</option>
+                                <option>Jul 2025 - Dec 2025</option>
+                            </select>
+                        </div>
+                        <div class="dashboard-chart-container">
+                            <canvas id="dashboard-earnings-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Trip Overview -->
+                    <div class="dashboard-chart-card">
+                        <div class="dashboard-chart-header">
+                            <h3>Trip Overview</h3>
+                            <select class="dashboard-period-dropdown">
+                                <option>Weekly</option>
+                                <option>Monthly</option>
+                            </select>
+                        </div>
+                        <div class="dashboard-chart-container">
+                            <canvas id="dashboard-trip-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- User Engagement -->
+                    <div class="dashboard-chart-card">
+                        <div class="dashboard-chart-header">
+                            <h3>USER ENGAGEMENT</h3>
+                        </div>
+                        <div class="dashboard-chart-container">
+                            <canvas id="dashboard-engagement-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Metrics -->
+                    <div class="dashboard-metrics-row">
+                        <div class="dashboard-metric-card">
+                            <div class="dashboard-metric-header">
+                                <span>Amount</span>
+                                <span>32%</span>
+                            </div>
+                            <h4>£680</h4>
+                            <div class="dashboard-progress-bar">
+                                <div class="dashboard-progress-fill" data-progress="32"></div>
+                            </div>
+                            <div class="dashboard-metric-range">
+                                <span>£0</span>
+                                <span>£2000.00</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-metric-card">
+                            <div class="dashboard-metric-header">
+                                <span>Hours</span>
+                                <span>08%</span>
+                            </div>
+                            <h4>180h</h4>
+                            <div class="dashboard-progress-bar">
+                                <div class="dashboard-progress-fill" data-progress="8"></div>
+                            </div>
+                            <div class="dashboard-metric-range">
+                                <span>0</span>
+                                <span>2400h</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-metric-card">
+                            <div class="dashboard-metric-header">
+                                <span>Trip</span>
+                                <span>48%</span>
+                            </div>
+                            <h4>48</h4>
+                            <div class="dashboard-progress-bar">
+                                <div class="dashboard-progress-fill" data-progress="48"></div>
+                            </div>
+                            <div class="dashboard-metric-range">
+                                <span>0</span>
+                                <span>100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Repeat Passengers -->
+                <div class="dashboard-right-column">
+                    <div class="dashboard-passengers-card">
+                        <h3>Repeat Passengers</h3>
+                        <div class="dashboard-passenger-list">
+                            <div class="dashboard-passenger-item">
+                                <div class="dashboard-passenger-avatar">
+                                    <img src="../assets/file-user-line.png" alt="Maharrm Hasanli">
+                                </div>
+                                <div class="dashboard-passenger-info">
+                                    <h4>Maharrm Hasanli</h4>
+                                    <p>+998 (99) 456-46-46</p>
+                                </div>
+                                <div class="dashboard-passenger-stats">
+                                    <div class="dashboard-passenger-orders">Orders: <strong>5</strong></div>
+                                    <div class="dashboard-passenger-income">Income: <strong>£98</strong></div>
+                                </div>
+                            </div>
+                            <div class="dashboard-passenger-item">
+                                <div class="dashboard-passenger-avatar">
+                                    <img src="../assets/file-user-line.png" alt="Gina Garza">
+                                </div>
+                                <div class="dashboard-passenger-info">
+                                    <h4>Gina Garza</h4>
+                                    <p>+998 (97) 456-10-46</p>
+                                </div>
+                                <div class="dashboard-passenger-stats">
+                                    <div class="dashboard-passenger-orders">Orders: <strong>5</strong></div>
+                                    <div class="dashboard-passenger-income">Income: <strong>£15</strong></div>
+                                </div>
+                            </div>
+                            <div class="dashboard-passenger-item">
+                                <div class="dashboard-passenger-avatar">
+                                    <img src="../assets/file-user-line.png" alt="Brian Reed">
+                                </div>
+                                <div class="dashboard-passenger-info">
+                                    <h4>Brian Reed</h4>
+                                    <p>+998 (95) 456-62-20</p>
+                                </div>
+                                <div class="dashboard-passenger-stats">
+                                    <div class="dashboard-passenger-orders">Orders: <strong>5</strong></div>
+                                    <div class="dashboard-passenger-income">Income: <strong>£23</strong></div>
+                                </div>
+                            </div>
+                            <div class="dashboard-passenger-item">
+                                <div class="dashboard-passenger-avatar">
+                                    <img src="../assets/file-user-line.png" alt="Tammy Spencer">
+                                </div>
+                                <div class="dashboard-passenger-info">
+                                    <h4>Tammy Spencer</h4>
+                                    <p>+998 (94) 456-10-32</p>
+                                </div>
+                                <div class="dashboard-passenger-stats">
+                                    <div class="dashboard-passenger-orders">Orders: <strong>5</strong></div>
+                                    <div class="dashboard-passenger-income">Income: <strong>£98</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <script src="../js/components.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/analysis.js"></script>
 </body>
 </html>
