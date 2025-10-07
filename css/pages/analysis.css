@@ -1,0 +1,240 @@
+/* Analysis Page Styles */
+
+.analysis-page {
+    padding: 1.5rem;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+}
+
+/* First Row - Stats Cards and Controls */
+.analysis-first-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Stats Cards Container */
+.analysis-stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    
+}
+
+.analysis-stat-card {
+    background: #d6e0ff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analysis-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.analysis-stat-label {
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.analysis-stat-change {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    color: #16a34a;
+}
+
+.analysis-stat-change i {
+    font-size: 0.7rem;
+}
+
+/* Controls Container */
+.analysis-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.analysis-month-selector {
+    position: relative;
+    min-width: 150px;
+}
+
+.analysis-dropdown {
+    appearance: none;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    padding-right: 2.5rem;
+    font-size: 0.9rem;
+    color: #374151;
+    cursor: pointer;
+    width: 100%;
+    transition: border-color 0.2s ease;
+}
+
+.analysis-dropdown:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.analysis-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #6b7280;
+    pointer-events: none;
+}
+
+.analysis-export-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s ease;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.analysis-export-btn:hover {
+    background: #1d4ed8;
+}
+
+.analysis-export-btn i {
+    font-size: 0.8rem;
+}
+
+/* Second Row - Charts and Data */
+.analysis-second-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.analysis-chart-section {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.analysis-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.analysis-chart-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.analysis-chart-filter {
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    color: #374151;
+    cursor: pointer;
+}
+
+.analysis-data-section {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.analysis-data-header {
+    margin-bottom: 1.5rem;
+}
+
+.analysis-data-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.analysis-data-subtitle {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .analysis-first-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .analysis-stats-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .analysis-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .analysis-second-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .analysis-page {
+        padding: 1rem;
+    }
+    
+    .analysis-stat-card {
+        padding: 1rem;
+    }
+    
+    .analysis-stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .analysis-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+}

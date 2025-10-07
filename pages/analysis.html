@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages/analysis.css">
 </head>
 <body>
     <div id="navbar-container"></div>
@@ -17,10 +18,94 @@
         <div class="dashboard-header">
             <h1>Analysis & Reports</h1>
         </div>
-        <div class="page-content">
-            <div class="content-card">
-                <h2>Data Analysis</h2>
-                <p>View comprehensive reports and analytics.</p>
+        <div class="page-content analysis-page">
+            <!-- First Row: Stats Cards and Controls -->
+            <div class="analysis-first-row">
+                <!-- Stats Cards Container -->
+                <div class="analysis-stats-container">
+                    <div class="analysis-stat-card">
+                        <span class="analysis-stat-value">£1845.50</span>
+                        <span class="analysis-stat-label">Total Revenue</span>
+                        <div class="analysis-stat-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>15.3%</span>
+                        </div>
+                    </div>
+                    <div class="analysis-stat-card">
+                        <span class="analysis-stat-value">60</span>
+                        <span class="analysis-stat-label">Total Trip</span>
+                        <div class="analysis-stat-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12.5%</span>
+                        </div>
+                    </div>
+                    <div class="analysis-stat-card">
+                        <span class="analysis-stat-value">04</span>
+                        <span class="analysis-stat-label">Repeat Passengers</span>
+                        <div class="analysis-stat-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>11.01%</span>
+                        </div>
+                    </div>
+                    <div class="analysis-stat-card">
+                        <span class="analysis-stat-value">88h</span>
+                        <span class="analysis-stat-label">Total Hours</span>
+                        <div class="analysis-stat-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>5.6%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controls Container -->
+                <div class="analysis-controls">
+                    <div class="analysis-month-selector">
+                        <select class="analysis-dropdown">
+                            <option value="september">September</option>
+                            <option value="october">October</option>
+                            <option value="november">November</option>
+                            <option value="december">December</option>
+                        </select>
+                    </div>
+                    <button class="analysis-export-btn">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Second Row: Charts and Data -->
+            <div class="analysis-second-row">
+                <!-- Chart Section (2/3 width) -->
+                <div class="analysis-chart-section">
+                    <div class="analysis-chart-header">
+                        <h3 class="analysis-chart-title">Earnings Summary</h3>
+                        <select class="analysis-chart-filter">
+                            <option>Jan 2025 - Jun 2025</option>
+                            <option>Jul 2025 - Dec 2025</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <!-- Chart content would go here -->
+                        <div style="height: 300px; background: #f8fafc; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #64748b;">
+                            Chart visualization area
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Section (1/3 width) -->
+                <div class="analysis-data-section">
+                    <div class="analysis-data-header">
+                        <h3 class="analysis-data-title">Trip Overview</h3>
+                        <p class="analysis-data-subtitle">Weekly performance data</p>
+                    </div>
+                    <div class="data-content">
+                        <!-- Data visualization would go here -->
+                        <div style="height: 300px; background: #f8fafc; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #64748b;">
+                            Data visualization area
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
