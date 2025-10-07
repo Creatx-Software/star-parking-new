@@ -1278,6 +1278,83 @@ window.addEventListener('resize', function() {
     }
 });
 
+// Add More sections functionality for details page
+let addMoreCounter = 0;
+
+function addNewSection() {
+    addMoreCounter++;
+    
+    const newSection = document.createElement('section');
+    newSection.className = 'details-section add-more-section show';
+    newSection.innerHTML = `
+        <div class="section-title-row">
+            <button type="button" class="section-close-btn" onclick="removeAddMoreSection(this)">&times;</button>
+            <h2 class="section-title">Add More</h2>
+            <div class="section-divider"></div>
+        </div>
+        <form class="add-more-form">
+            <div class="form-group">
+                <label for="addLabel${addMoreCounter}">Label <span class="required">*</span></label>
+                <input type="text" id="addLabel${addMoreCounter}" name="addLabel${addMoreCounter}" placeholder="DEMO">
+            </div>
+            
+            <div class="form-group">
+                <label for="addFile${addMoreCounter}">File <span class="required">*</span></label>
+                <div class="file-upload">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 2V8H20" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 13H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 17H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 9H9H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Upload File</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="addVisibility${addMoreCounter}">Visibility <span class="required">*</span></label>
+                <input type="text" id="addVisibility${addMoreCounter}" name="addVisibility${addMoreCounter}" placeholder="Public">
+            </div>
+            
+            <div class="form-group">
+                <label for="addStatus${addMoreCounter}">Status <span class="required">*</span></label>
+                <input type="text" id="addStatus${addMoreCounter}" name="addStatus${addMoreCounter}" placeholder="Active">
+            </div>
+        </form>
+        
+        <button type="button" class="upload-document-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 15V3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Upload Document
+        </button>
+    `;
+    
+    // Insert the new section before the Add More button
+    const addMoreBtn = document.querySelector('.add-more-btn');
+    addMoreBtn.parentNode.insertBefore(newSection, addMoreBtn);
+    
+    // Scroll to the new section
+    newSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function removeAddMoreSection(closeButton) {
+    const section = closeButton.closest('.details-section');
+    
+    // Add fade-out animation
+    section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(-20px)';
+    
+    // Remove the section after animation
+    setTimeout(() => {
+        section.remove();
+    }, 300);
+}
+
 // Export functions for potential use
 window.starParkingApp = {
     userData,
@@ -1286,5 +1363,7 @@ window.starParkingApp = {
     renderTable,
     deleteUser,
     exportTableData,
-    showAddUserModal
+    showAddUserModal,
+    addNewSection,
+    removeAddMoreSection
 };

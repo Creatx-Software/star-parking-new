@@ -134,8 +134,8 @@
 .user-info {
     display: flex;
     flex-direction: row;
-    align-items: left;
-    gap: 0px;
+    align-items: center;
+    gap: 12px;
 }
 
 .avatar {
@@ -155,6 +155,8 @@
 .user-details {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     gap: 2px;
 }
 
