@@ -3,6 +3,97 @@ let currentDate = new Date();
 let currentMonth = 8; // September (0-indexed)
 let currentYear = 2025;
 
+// Notification popup functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const notificationBtn = document.getElementById('notificationBtn');
+    const notificationPopup = document.getElementById('notificationPopup');
+    const closePopupBtn = document.getElementById('closePopupBtn');
+
+    if (notificationBtn && notificationPopup) {
+        // Toggle notification popup
+        notificationBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            notificationPopup.classList.toggle('show');
+        });
+
+        // Close popup when clicking the close button
+        if (closePopupBtn) {
+            closePopupBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                notificationPopup.classList.remove('show');
+            });
+        }
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!notificationPopup.contains(e.target) && !notificationBtn.contains(e.target)) {
+                notificationPopup.classList.remove('show');
+            }
+        });
+
+        // Prevent popup from closing when clicking inside it
+        notificationPopup.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Handle notification actions
+        const dismissBtns = document.querySelectorAll('.dismiss-btn');
+        const approveBtns = document.querySelectorAll('.approve-btn');
+        const sendBtns = document.querySelectorAll('.send-btn');
+        const markReadBtn = document.querySelector('.mark-read-btn');
+        const viewAllBtn = document.querySelector('.view-all-btn');
+
+        dismissBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const notificationItem = btn.closest('.notification-item');
+                notificationItem.style.opacity = '0.5';
+                setTimeout(() => {
+                    notificationItem.remove();
+                }, 300);
+            });
+        });
+
+        approveBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                btn.textContent = 'Approved';
+                btn.style.background = '#22c55e';
+                btn.disabled = true;
+            });
+        });
+
+        sendBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const replyInput = btn.previousElementSibling;
+                if (replyInput.value.trim()) {
+                    replyInput.value = '';
+                    btn.textContent = 'Sent';
+                    btn.style.background = '#22c55e';
+                    setTimeout(() => {
+                        btn.textContent = 'Send';
+                        btn.style.background = '#4f46e5';
+                    }, 2000);
+                }
+            });
+        });
+
+        if (markReadBtn) {
+            markReadBtn.addEventListener('click', function() {
+                const activeStatuses = document.querySelectorAll('.notification-status.active');
+                activeStatuses.forEach(status => {
+                    status.classList.remove('active');
+                });
+            });
+        }
+
+        if (viewAllBtn) {
+            viewAllBtn.addEventListener('click', function() {
+                console.log('View all notifications clicked');
+                // Add navigation logic here
+            });
+        }
+    }
+});
+
 // Sample data for the data table
 const userData = [
     {
@@ -741,14 +832,32 @@ function initializeNavigation() {
     const sidebar = document.getElementById('sidebar');
     const mainContent = document.querySelector('.main-content');
     const closeBtn = document.getElementById('closeBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    if (hamburgerMenu && sidebar && mainContent) {
+    // Check if we're on mobile (screen width <= 768px)
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // Handle hamburger menu click
+    if (hamburgerMenu) {
         hamburgerMenu.addEventListener('click', function() {
-            sidebar.classList.toggle('open');
-            mainContent.classList.toggle('sidebar-open');
+            if (isMobile()) {
+                // Toggle mobile menu
+                if (mobileMenu) {
+                    mobileMenu.classList.toggle('active');
+                }
+            } else {
+                // Toggle sidebar for desktop
+                if (sidebar && mainContent) {
+                    sidebar.classList.toggle('open');
+                    mainContent.classList.toggle('sidebar-open');
+                }
+            }
         });
     }
 
+    // Handle sidebar close button (desktop only)
     if (closeBtn && sidebar && mainContent) {
         closeBtn.addEventListener('click', function() {
             sidebar.classList.remove('open');
@@ -756,18 +865,56 @@ function initializeNavigation() {
         });
     }
 
-    // Close sidebar when clicking outside
+    // Close menus when clicking outside
     document.addEventListener('click', function(event) {
-        if (sidebar && hamburgerMenu && 
-            !sidebar.contains(event.target) && 
-            !hamburgerMenu.contains(event.target) && 
-            sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
-            mainContent.classList.remove('sidebar-open');
+        if (isMobile()) {
+            // Close mobile menu when clicking outside
+            if (mobileMenu && hamburgerMenu && 
+                !mobileMenu.contains(event.target) && 
+                !hamburgerMenu.contains(event.target) && 
+                mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+            }
+        } else {
+            // Close sidebar when clicking outside (desktop)
+            if (sidebar && hamburgerMenu && 
+                !sidebar.contains(event.target) && 
+                !hamburgerMenu.contains(event.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                mainContent.classList.remove('sidebar-open');
+            }
         }
     });
 
-    // Sidebar navigation
+    // Handle mobile menu link clicks
+    if (mobileMenu) {
+        const mobileMenuLinks = mobileMenu.querySelectorAll('.nav-link');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Close mobile menu when a link is clicked
+                mobileMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (!isMobile()) {
+            // Close mobile menu if switching to desktop
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
+        } else {
+            // Close sidebar if switching to mobile
+            if (sidebar && mainContent) {
+                sidebar.classList.remove('open');
+                mainContent.classList.remove('sidebar-open');
+            }
+        }
+    });
+
+    // Sidebar navigation (desktop)
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
     sidebarLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -853,12 +1000,7 @@ function addEventListeners() {
     }
     
     // Action buttons in filters
-    const notificationBtn = document.querySelector('.notification-btn');
-    if (notificationBtn) {
-        notificationBtn.addEventListener('click', function() {
-            alert('Notifications feature coming soon!');
-        });
-    }
+    // Notification button functionality is handled in the DOMContentLoaded event above
     
     const exportBtn = document.querySelector('.export-btn');
     if (exportBtn) {
@@ -886,7 +1028,7 @@ function addEventListeners() {
     }
 
     // Search functionality for navbar
-    const navSearchInput = document.querySelector('.search-input');
+    const navSearchInput = document.querySelector('.navbar-search-input');
     if (navSearchInput) {
         navSearchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
@@ -1136,6 +1278,83 @@ window.addEventListener('resize', function() {
     }
 });
 
+// Add More sections functionality for details page
+let addMoreCounter = 0;
+
+function addNewSection() {
+    addMoreCounter++;
+    
+    const newSection = document.createElement('section');
+    newSection.className = 'details-section add-more-section show';
+    newSection.innerHTML = `
+        <div class="section-title-row">
+            <button type="button" class="section-close-btn" onclick="removeAddMoreSection(this)">&times;</button>
+            <h2 class="section-title">Add More</h2>
+            <div class="section-divider"></div>
+        </div>
+        <form class="add-more-form">
+            <div class="form-group">
+                <label for="addLabel${addMoreCounter}">Label <span class="required">*</span></label>
+                <input type="text" id="addLabel${addMoreCounter}" name="addLabel${addMoreCounter}" placeholder="DEMO">
+            </div>
+            
+            <div class="form-group">
+                <label for="addFile${addMoreCounter}">File <span class="required">*</span></label>
+                <div class="file-upload">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 2V8H20" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 13H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 17H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 9H9H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Upload File</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="addVisibility${addMoreCounter}">Visibility <span class="required">*</span></label>
+                <input type="text" id="addVisibility${addMoreCounter}" name="addVisibility${addMoreCounter}" placeholder="Public">
+            </div>
+            
+            <div class="form-group">
+                <label for="addStatus${addMoreCounter}">Status <span class="required">*</span></label>
+                <input type="text" id="addStatus${addMoreCounter}" name="addStatus${addMoreCounter}" placeholder="Active">
+            </div>
+        </form>
+        
+        <button type="button" class="upload-document-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 15V3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Upload Document
+        </button>
+    `;
+    
+    // Insert the new section before the Add More button
+    const addMoreBtn = document.querySelector('.add-more-btn');
+    addMoreBtn.parentNode.insertBefore(newSection, addMoreBtn);
+    
+    // Scroll to the new section
+    newSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function removeAddMoreSection(closeButton) {
+    const section = closeButton.closest('.details-section');
+    
+    // Add fade-out animation
+    section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(-20px)';
+    
+    // Remove the section after animation
+    setTimeout(() => {
+        section.remove();
+    }, 300);
+}
+
 // Export functions for potential use
 window.starParkingApp = {
     userData,
@@ -1144,5 +1363,7 @@ window.starParkingApp = {
     renderTable,
     deleteUser,
     exportTableData,
-    showAddUserModal
+    showAddUserModal,
+    addNewSection,
+    removeAddMoreSection
 };

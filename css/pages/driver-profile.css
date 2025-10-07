@@ -15,13 +15,14 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .profile-left {
     display: flex;
     gap: 1.5rem;
     flex: 1;
+    border-right: 1px solid #e5e7eb;
 }
 
 .profile-avatar-large {
@@ -82,7 +83,6 @@
     flex: 2;
     margin-left: 1rem;
     padding-left: 2rem;
-    border-left: 1px solid #e5e7eb;
 }
 
 .profile-description h4 {
@@ -416,7 +416,7 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: #f9fafb;
+    /* background: #f9fafb; */
     border-radius: 8px;
 }
 

@@ -1,5 +1,13 @@
 /* Salary Deduction Page Styles */
 
+/* Page Content Layout for Salary Deduction Page */
+body .page-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 140px); /* Subtract navbar height and main-content padding */
+    gap: 1.5rem;
+}
+
 /* Payroll Section Styles */
 .payroll-section {
     background: white;
@@ -8,6 +16,9 @@
     border: 1px solid var(--border-color);
     margin-top: 2rem;
     overflow: hidden;
+    flex: 1; /* Take up remaining available space */
+    display: flex;
+    flex-direction: column;
 }
 
 .section-header {
@@ -15,7 +26,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 1.5rem 1rem 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+    /* border-bottom: 1px solid var(--border-color); */
 }
 
 .section-header h2 {
@@ -26,7 +37,7 @@
     margin: 0;
 }
 
-.search-container {
+/* .search-container {
     position: relative;
     width: 250px;
 }
@@ -59,16 +70,20 @@
 
 .search-input::placeholder {
     color: #9ca3af;
-}
+} */
 
 .payroll-table-container {
     overflow-x: auto;
+    flex: 1; /* Take up remaining space in payroll section */
+    display: flex;
+    flex-direction: column;
 }
 
 .payroll-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9rem;
+    height: 100%; /* Take full height of container */
 }
 
 .payroll-table th {
@@ -143,17 +158,16 @@
     align-items: center;
     justify-content: space-between;
     background: white;
-    border-radius: 4px;
     padding: 0.5rem 0.75rem;
     cursor: pointer;
     transition: all 0.2s;
     min-width: 140px;
     position: relative;
+    color: #335ae6 ;
 }
 
 .payment-plan-dropdown:hover {
     border-color: #3b82f6;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .payment-plan-dropdown.active {
@@ -163,9 +177,10 @@
 
 .payment-plan-dropdown span {
     font-size: 0.875rem;
-    color: #374151;
+    color: #335ae6;
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
+    text-decoration: underline;
 }
 
 .payment-plan-dropdown i {
@@ -189,12 +204,12 @@
     border: 1px solid #e2e8f0;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+    z-index: 8000;
     margin-top: 2px;
     overflow: hidden;
 }
 
-.payment-plan-menu div {
+.dropdown-option {
     padding: 0.5rem 0.75rem;
     cursor: pointer;
     font-size: 0.875rem;
@@ -204,11 +219,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.payment-plan-menu div:last-child {
+.dropdown-option:last-child {
     border-bottom: none;
 }
 
-.payment-plan-menu div:hover {
+.dropdown-option:hover {
     background: #f8fafc;
     color: #1f2937;
 }
@@ -241,15 +256,12 @@
 
 /* Action Menu */
 .action-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
+    position: fixed !important;
     background: white;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    margin-top: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999 !important;
     min-width: 150px;
 }
 
@@ -331,12 +343,14 @@
         font-size: 0.75rem;
     }
     
-    .status-badge {
+    .salary-deduction-status {
         font-size: 0.7rem;
         padding: 0.2rem 0.5rem;
         min-width: 50px;
-        width: 50px;
+        width: 150px;
+        color: #ff0000 !important;
     }
+    
     
     .action-btn {
         width: 32px;

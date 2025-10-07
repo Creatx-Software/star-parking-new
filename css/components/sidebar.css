@@ -141,25 +141,30 @@
     align-items: center;
     gap: 12px;
     padding: 12px 24px;
-    color: #9f9f9f;
+    color: #999999;
     text-decoration: none;
     transition: all 0.2s ease;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 18px;
     margin: 4px 12px;
     border-radius: 8px;
 }
 
 .sidebar-link:hover {
-    background: #f3f4f6;
-    color: #335ae6;
+    background: #d2dcff;
+        color: #335ae6;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: 500;
 }
 
 .sidebar-link.active {
     background: #d2dcff;
     color: #335ae6;
     border-radius: 8px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .sidebar-link i {
@@ -182,12 +187,12 @@
     align-items: center;
     gap: 12px;
     padding: 12px 12px;
-    color: #9f9f9f;
+    color: #333333;
     text-decoration: none;
     transition: all 0.2s ease;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 18px;
     border-radius: 8px;
 }
 

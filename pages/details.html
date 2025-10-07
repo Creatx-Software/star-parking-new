@@ -179,8 +179,9 @@
             </section>
 
             <!-- Add More Section -->
-            <section class="details-section">
+            <section class="details-section add-more-section">
                 <div class="section-title-row">
+                    <button type="button" class="section-close-btn" onclick="removeAddMoreSection(this)">&times;</button>
                     <h2 class="section-title">Add More</h2>
                     <div class="section-divider"></div>
                 </div>
@@ -226,8 +227,9 @@
             </section>
 
             <!-- Second Add More Section -->
-            <section class="details-section">
+            <section class="details-section add-more-section">
                 <div class="section-title-row">
+                    <button type="button" class="section-close-btn" onclick="removeAddMoreSection(this)">&times;</button>
                     <h2 class="section-title">Add More</h2>
                     <div class="section-divider"></div>
                 </div>
@@ -271,6 +273,15 @@
                     Upload Document
                 </button>
             </section>
+
+            <!-- Add More Button -->
+            <button type="button" class="add-more-btn" onclick="addNewSection()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Add More
+            </button>
 
             <!-- Action Buttons -->
             <div class="action-buttons">

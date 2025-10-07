@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages/home.css">
 </head>
 <body>
     <!-- Navigation will be loaded here -->
@@ -57,9 +58,82 @@
                 </div>
             </div>
             <div class="filter-actions">
-                <button class="notification-btn">
-                    <i class="fas fa-bell"></i>
-                </button>
+                <div class="notification-container">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <!-- Notification Popup -->
+                    <div class="notification-popup" id="notificationPopup">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <button class="close-popup-btn" id="closePopupBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item">
+                                <div class="notification-avatar">
+                                    <img src="https://i.pravatar.cc/40?img=1" alt="Alfred">
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-time">9 hours ago • Adtham Designs</div>
+                                    <div class="notification-message">Alfred has asked for Gordan's approval</div>
+                                    <div class="notification-actions">
+                                        <button class="dismiss-btn">Dismiss</button>
+                                        <button class="approve-btn">Approve</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status active"></div>
+                            </div>
+                            
+                            <div class="notification-item">
+                                <div class="notification-avatar">
+                                    <img src="https://i.pravatar.cc/40?img=2" alt="Irfan">
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-time">12 hours ago</div>
+                                    <div class="notification-message">Irfan commented under # Landing Pages</div>
+                                    <div class="notification-text">@meAarav, Please check the new Pricing Section Design, under Landing pages... <span class="read-more">Read More</span></div>
+                                    <div class="notification-reply">
+                                        <input type="text" placeholder="Reply @irfan02" class="reply-input">
+                                        <button class="send-btn">Send</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status active"></div>
+                            </div>
+                            
+                            <div class="notification-item">
+                                <div class="notification-avatar">
+                                    <img src="https://i.pravatar.cc/40?img=3" alt="Aashna">
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-time">2 days ago • Client Onboarding</div>
+                                    <div class="notification-message">Aashna uploaded a new document</div>
+                                    <div class="notification-file">
+                                        <div class="file-icon">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div class="file-info">
+                                            <div class="file-name">Client Proposal Docs v2.docx</div>
+                                            <div class="file-size">6.5 MB</div>
+                                        </div>
+                                        <button class="file-menu-btn">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="notification-status"></div>
+                            </div>
+                        </div>
+                        <div class="notification-footer">
+                            <button class="mark-read-btn">
+                                <i class="fas fa-check"></i>
+                                Mark all as read
+                            </button>
+                            <button class="view-all-btn">View all notifications</button>
+                        </div>
+                    </div>
+                </div>
                 <button class="export-btn">
                     <i class="fas fa-download"></i>
                     Export
@@ -90,7 +164,474 @@
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-                    <!-- Table data will be populated by JavaScript -->
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=1" alt="Malinga Darshana" class="employee-avatar">
+                                <span class="employee-name">Malinga Darshana</span>
+                            </div>
+                        </td>
+                        <td>mali201</td>
+                        <td>Mon 13 Sep</td>
+                        <td><span class="time-badge">09:34 AM <i class="fas fa-clock"></i></span></td>
+                        <td>-</td>
+                        <td>17.3 h</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>Admin</td>
+                        <td>£20.50</td>
+                        <td>£08.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=2" alt="Alex Jay" class="employee-avatar">
+                                <span class="employee-name">Alex Jay</span>
+                            </div>
+                        </td>
+                        <td>alex#21</td>
+                        <td>Mon 13 Sep</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>27.3 h</td>
+                        <td><span class="status-badge inactive">Inactive</span></td>
+                        <td>User</td>
+                        <td>£10.50</td>
+                        <td>£07.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=3" alt="Nipun Lakmal" class="employee-avatar">
+                                <span class="employee-name">Nipun Lakmal</span>
+                            </div>
+                        </td>
+                        <td>nipun200</td>
+                        <td>Mon 14 Sep</td>
+                        <td><span class="time-badge">09:34 AM <i class="fas fa-clock"></i></span></td>
+                        <td>-</td>
+                        <td>13.3 h</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>User</td>
+                        <td>£33.00</td>
+                        <td>£08.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=4" alt="Nipun Lakmal" class="employee-avatar">
+                                <span class="employee-name">Nipun Lakmal</span>
+                            </div>
+                        </td>
+                        <td>mali201</td>
+                        <td>Mon 14 Sep</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>15.3 h</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td>User</td>
+                        <td>£13.00</td>
+                        <td>£07.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=5" alt="Malinga Darshana" class="employee-avatar">
+                                <span class="employee-name">Malinga Darshana</span>
+                            </div>
+                        </td>
+                        <td>mali201</td>
+                        <td>Mon 13 Sep</td>
+                        <td><span class="time-badge">09:34 AM <i class="fas fa-clock"></i></span></td>
+                        <td>-</td>
+                        <td>17.3 h</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>Admin</td>
+                        <td>£20.50</td>
+                        <td>£08.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=6" alt="Alex Jay" class="employee-avatar">
+                                <span class="employee-name">Alex Jay</span>
+                            </div>
+                        </td>
+                        <td>alex#21</td>
+                        <td>Mon 13 Sep</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>27.3 h</td>
+                        <td><span class="status-badge inactive">Inactive</span></td>
+                        <td>User</td>
+                        <td>£10.50</td>
+                        <td>£07.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=7" alt="Nipun Lakmal" class="employee-avatar">
+                                <span class="employee-name">Nipun Lakmal</span>
+                            </div>
+                        </td>
+                        <td>nipun200</td>
+                        <td>Mon 14 Sep</td>
+                        <td><span class="time-badge">09:34 AM <i class="fas fa-clock"></i></span></td>
+                        <td>-</td>
+                        <td>13.3 h</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>User</td>
+                        <td>£33.00</td>
+                        <td>£08.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=8" alt="Nipun Lakmal" class="employee-avatar">
+                                <span class="employee-name">Nipun Lakmal</span>
+                            </div>
+                        </td>
+                        <td>mali201</td>
+                        <td>Mon 14 Sep</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>15.3 h</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td>User</td>
+                        <td>£13.00</td>
+                        <td>£07.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=9" alt="Malinga Darshana" class="employee-avatar">
+                                <span class="employee-name">Malinga Darshana</span>
+                            </div>
+                        </td>
+                        <td>mali201</td>
+                        <td>Mon 13 Sep</td>
+                        <td><span class="time-badge">09:34 AM <i class="fas fa-clock"></i></span></td>
+                        <td>-</td>
+                        <td>17.3 h</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>Admin</td>
+                        <td>£20.50</td>
+                        <td>£08.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=10" alt="Alex Jay" class="employee-avatar">
+                                <span class="employee-name">Alex Jay</span>
+                            </div>
+                        </td>
+                        <td>alex#21</td>
+                        <td>Mon 13 Sep</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>27.3 h</td>
+                        <td><span class="status-badge inactive">Inactive</span></td>
+                        <td>User</td>
+                        <td>£10.50</td>
+                        <td>£07.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=11" alt="Nipun Lakmal" class="employee-avatar">
+                                <span class="employee-name">Nipun Lakmal</span>
+                            </div>
+                        </td>
+                        <td>nipun200</td>
+                        <td>Mon 14 Sep</td>
+                        <td><span class="time-badge">09:34 AM <i class="fas fa-clock"></i></span></td>
+                        <td>-</td>
+                        <td>13.3 h</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>User</td>
+                        <td>£33.00</td>
+                        <td>£08.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-info">
+                                <img src="https://i.pravatar.cc/40?img=12" alt="Nipun Lakmal" class="employee-avatar">
+                                <span class="employee-name">Nipun Lakmal</span>
+                            </div>
+                        </td>
+                        <td>mali201</td>
+                        <td>Mon 14 Sep</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>15.3 h</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td>User</td>
+                        <td>£13.00</td>
+                        <td>£07.50</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn view-btn" title="View Profile">
+                                    <img src="../assets/file-user-line.png" alt="View" class="action-icon">
+                                </button>
+                                <button class="action-btn stats-btn" title="View Stats">
+                                    <img src="../assets/line-chart-line.png" alt="Stats" class="action-icon">
+                                </button>
+                                <button class="action-btn location-btn" title="View Location">
+                                    <img src="../assets/view location.png" alt="Location" class="action-icon">
+                                </button>
+                                <button class="action-btn details-btn" title="View Details">
+                                    <img src="../assets/view details.png" alt="Details" class="action-icon">
+                                </button>
+                                <button class="action-btn edit-btn" title="Edit">
+                                    <img src="../assets/pencil-line (1).png" alt="Edit" class="action-icon">
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete">
+                                    <img src="../assets/delete-bin-line.png" alt="Delete" class="action-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
