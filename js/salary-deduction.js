@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializePayrollSection() {
     console.log('Initializing payroll section...');
     
+    // Close action menus when table container scrolls
+    const tableContainer = document.querySelector('.payroll-table-container');
+    if (tableContainer) {
+        tableContainer.addEventListener('scroll', function() {
+            document.querySelectorAll('.action-menu').forEach(menu => menu.remove());
+        });
+    }
+    
     // Handle select all checkbox
     const selectAllCheckbox = document.querySelector('.select-all');
     const rowCheckboxes = document.querySelectorAll('.row-select');
@@ -58,20 +66,8 @@ function initializePayrollSection() {
         });
     }
     
-    // Handle payment plan dropdowns
-    const paymentPlanDropdowns = document.querySelectorAll('.payment-plan-dropdown');
-    paymentPlanDropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', function(e) {
-            e.stopPropagation();
-            console.log('Payment plan dropdown clicked');
-            
-            // Toggle dropdown appearance or show menu
-            this.classList.toggle('active');
-            
-            // You can add dropdown menu logic here
-            showPaymentPlanMenu(this);
-        });
-    });
+    // Handle payment plan dropdowns - Simple and reliable approach
+    initializePaymentDropdowns();
     
     // Handle action buttons
     const actionButtons = document.querySelectorAll('.action-btn');
@@ -108,6 +104,65 @@ function initializePayrollSection() {
     console.log('Payroll section initialized successfully');
 }
 
+function initializePaymentDropdowns() {
+    // Remove any existing event listeners by cloning elements
+    const dropdowns = document.querySelectorAll('.payment-plan-dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        // Clone to remove all event listeners
+        const newDropdown = dropdown.cloneNode(true);
+        dropdown.parentNode.replaceChild(newDropdown, dropdown);
+    });
+    
+    // Re-select dropdowns after cloning
+    const freshDropdowns = document.querySelectorAll('.payment-plan-dropdown');
+    
+    freshDropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Close all other dropdowns first
+            closeAllDropdowns(this);
+            
+            // Toggle this dropdown
+            const isActive = this.classList.contains('active');
+            
+            if (!isActive) {
+                this.classList.add('active');
+                createDropdownMenu(this);
+            }
+        });
+    });
+    
+    // Global click handler to close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.payment-plan-dropdown')) {
+            closeAllDropdowns();
+        }
+    });
+    
+    // ESC key handler
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllDropdowns();
+        }
+    });
+}
+
+function closeAllDropdowns(except = null) {
+    const dropdowns = document.querySelectorAll('.payment-plan-dropdown');
+    dropdowns.forEach(dropdown => {
+        if (dropdown !== except) {
+            dropdown.classList.remove('active');
+            const menu = dropdown.querySelector('.payment-plan-menu');
+            if (menu) {
+                menu.remove();
+            }
+        }
+    });
+}
+
 function filterPayrollTable(searchTerm) {
     const tableRows = document.querySelectorAll('.payroll-table tbody tr');
     const searchLower = searchTerm.toLowerCase();
@@ -124,25 +179,16 @@ function filterPayrollTable(searchTerm) {
     console.log(`Filtered payroll table: ${visibleRows}/${tableRows.length} rows visible`);
 }
 
-function showPaymentPlanMenu(dropdown) {
-    // Remove any existing menus
-    document.querySelectorAll('.payment-plan-menu').forEach(menu => menu.remove());
+function createDropdownMenu(dropdown) {
+    // Remove any existing menu first
+    const existingMenu = dropdown.querySelector('.payment-plan-menu');
+    if (existingMenu) {
+        existingMenu.remove();
+    }
     
     // Create dropdown menu
     const menu = document.createElement('div');
     menu.className = 'payment-plan-menu';
-    menu.style.cssText = `
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        margin-top: 4px;
-    `;
     
     const options = [
         '£25 Per Month',
@@ -155,68 +201,55 @@ function showPaymentPlanMenu(dropdown) {
     options.forEach(option => {
         const optionElement = document.createElement('div');
         optionElement.textContent = option;
-        optionElement.style.cssText = `
-            padding: 0.5rem 0.75rem;
-            cursor: pointer;
-            font-size: 0.875rem;
-            color: #374151;
-            border-bottom: 1px solid #f3f4f6;
-        `;
+        optionElement.className = 'dropdown-option';
         
-        optionElement.addEventListener('click', function() {
-            dropdown.querySelector('span').textContent = option;
-            menu.remove();
+        optionElement.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Update the dropdown text
+            const spanElement = dropdown.querySelector('span');
+            if (spanElement) {
+                spanElement.textContent = option;
+            }
+            
+            // Close dropdown
             dropdown.classList.remove('active');
+            menu.remove();
+            
             console.log(`Payment plan changed to: ${option}`);
-        });
-        
-        optionElement.addEventListener('mouseenter', function() {
-            this.style.background = '#f9fafb';
-        });
-        
-        optionElement.addEventListener('mouseleave', function() {
-            this.style.background = '';
+            
+            // Re-initialize dropdowns to ensure they keep working
+            setTimeout(() => {
+                initializePaymentDropdowns();
+            }, 50);
         });
         
         menu.appendChild(optionElement);
     });
     
-    // Remove border from last option
-    const lastOption = menu.lastElementChild;
-    if (lastOption) lastOption.style.borderBottom = 'none';
-    
-    dropdown.style.position = 'relative';
     dropdown.appendChild(menu);
-    
-    // Close menu when clicking outside
-    setTimeout(() => {
-        document.addEventListener('click', function closeMenu(e) {
-            if (!dropdown.contains(e.target)) {
-                menu.remove();
-                dropdown.classList.remove('active');
-                document.removeEventListener('click', closeMenu);
-            }
-        });
-    }, 0);
 }
 
 function showActionMenu(button, rowData) {
     // Remove any existing menus
     document.querySelectorAll('.action-menu').forEach(menu => menu.remove());
     
+    // Get button position for fixed positioning
+    const buttonRect = button.getBoundingClientRect();
+    
     // Create action menu
     const menu = document.createElement('div');
     menu.className = 'action-menu';
     menu.style.cssText = `
-        position: absolute;
-        top: 100%;
-        right: 0;
+        position: fixed;
+        top: ${buttonRect.bottom + 4}px;
+        right: ${window.innerWidth - buttonRect.right}px;
         background: white;
         border: 1px solid #e2e8f0;
         border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        margin-top: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
         min-width: 150px;
     `;
     
@@ -265,17 +298,36 @@ function showActionMenu(button, rowData) {
     const lastAction = menu.lastElementChild;
     if (lastAction) lastAction.style.borderBottom = 'none';
     
-    button.style.position = 'relative';
-    button.appendChild(menu);
+    // Append to body for fixed positioning
+    document.body.appendChild(menu);
     
-    // Close menu when clicking outside
+    // Adjust position if menu goes off screen
+    const menuRect = menu.getBoundingClientRect();
+    if (menuRect.right > window.innerWidth) {
+        menu.style.right = '10px';
+    }
+    if (menuRect.bottom > window.innerHeight) {
+        menu.style.top = `${buttonRect.top - menuRect.height - 4}px`;
+    }
+    
+    // Close menu when clicking outside or on window resize
     setTimeout(() => {
-        document.addEventListener('click', function closeMenu(e) {
-            if (!button.contains(e.target)) {
+        function closeMenu(e) {
+            if (!button.contains(e.target) && !menu.contains(e.target)) {
                 menu.remove();
                 document.removeEventListener('click', closeMenu);
+                window.removeEventListener('resize', closeMenuOnResize);
             }
-        });
+        }
+        
+        function closeMenuOnResize() {
+            menu.remove();
+            document.removeEventListener('click', closeMenu);
+            window.removeEventListener('resize', closeMenuOnResize);
+        }
+        
+        document.addEventListener('click', closeMenu);
+        window.addEventListener('resize', closeMenuOnResize);
     }, 0);
 }
 

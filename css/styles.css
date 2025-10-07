@@ -912,7 +912,7 @@ body {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: #f9fafb;
+    /* background: #f9fafb; */
     border-radius: 8px;
 }
 
@@ -1059,7 +1059,7 @@ body {
     flex: 2;
     margin-left: 1rem;
     padding-left: 2rem;
-    border-left: 1px solid #e5e7eb;
+    
 }
 
 .profile-description h4 {
