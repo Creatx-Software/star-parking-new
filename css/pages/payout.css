@@ -1,0 +1,514 @@
+/* Payout Page Styles */
+
+/* Main Content Area */
+.payout-page .main-content {
+    background-color: white;
+    min-height: calc(100vh - 70px);
+    padding: 2rem;
+}
+
+/* Page Header */
+.payout-page .dashboard-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+}
+
+.payout-page .dashboard-header h1 {
+    font-size: 2rem;
+    color: #111827;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+/* Filter Section */
+.payout-page .filters-section {
+    background: white;
+    padding: 1.5rem 0;
+    margin-bottom: -1.5rem;
+}
+
+.payout-page .filters-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.payout-page .filter-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.payout-page .filter-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+    min-width: 140px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.payout-page .filter-dropdown i {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.payout-page .search-filter {
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+}
+
+.payout-page .search-filter i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.payout-page .filter-search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.payout-page .filter-search-input:focus {
+    outline: none;
+    border-color: #335ae6;
+    box-shadow: 0 0 0 3px rgba(51, 90, 230, 0.1);
+}
+
+.payout-page .filter-search-input::placeholder {
+    color: #9ca3af;
+}
+
+.payout-page .filter-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.payout-page .transaction-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: #335ae6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payout-page .transaction-btn:hover {
+    background: #2847d3;
+}
+
+.payout-page .export-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payout-page .export-btn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+/* Transaction Table */
+.payout-page .table-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+}
+
+.payout-page .data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payout-page .data-table thead {
+    background: #ebebeb;
+}
+
+.payout-page .data-table th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #333;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.payout-page .data-table th:first-child {
+    width: 40px;
+    padding-left: 1rem;
+}
+
+.payout-page .data-table th:nth-child(2) {
+    width: 200px;
+}
+
+.payout-page .data-table td {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #646464;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.payout-page .data-table td:first-child {
+    padding-left: 1rem;
+    width: 40px;
+}
+
+.payout-page .data-table td:nth-child(2) {
+    width: 200px;
+}
+
+.payout-page .data-table tbody tr:hover {
+    background: #fafbfc;
+}
+
+.payout-page .data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* User Profile in Table */
+.payout-page .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.payout-page .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.payout-page .user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Avatar fallback when image fails to load */
+.payout-page .user-avatar img[src="../assets/user-avatar.jpg"] {
+    display: none;
+}
+
+.payout-page .user-avatar::before {
+    content: 'SF';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    color: white;
+}
+
+.payout-page .user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.payout-page .user-name {
+    font-weight: 500;
+    color: #333;
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.payout-page .user-id {
+    font-size: 10px;
+    color: #9ca3af;
+    line-height: 1;
+}
+
+/* Checkbox Styling */
+.payout-page .row-checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: #335ae6;
+    cursor: pointer;
+}
+
+/* Status Badges */
+.payout-page .status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 9px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    min-width: 70px;
+    width: 70px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.payout-page .status-badge.pending {
+    background: #FFA500;
+    color: white;
+}
+
+.payout-page .status-badge.approval {
+    background: #37a748;
+    color: white;
+}
+
+/* Amount Display */
+.payout-page .amount-display {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #646464;
+}
+
+.payout-page .amount-positive {
+    color: #37a748;
+}
+
+.payout-page .amount-negative {
+    color: #dc3545;
+}
+
+/* Pagination */
+.payout-page .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.payout-page .pagination-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.payout-page .per-page-select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.payout-page .pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.payout-page .page-info {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.payout-page .pagination-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.payout-page .pagination-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.payout-page .pagination-btn:hover:not(:disabled) {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.payout-page .pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.payout-page .pagination-btn.active {
+    background: #335ae6;
+    color: white;
+    border-color: #335ae6;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .payout-page .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .payout-page .filter-left {
+        flex-wrap: wrap;
+    }
+    
+    .payout-page .filter-actions {
+        justify-content: flex-end;
+    }
+    
+    .payout-page .search-filter {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .payout-page .main-content {
+        padding: 1rem;
+    }
+    
+    .payout-page .filters-container {
+        gap: 0.75rem;
+    }
+    
+    .payout-page .filter-left {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .payout-page .filter-dropdown {
+        min-width: auto;
+    }
+    
+    .payout-page .filter-actions {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .payout-page .table-container {
+        overflow-x: auto;
+    }
+    
+    .payout-page .data-table {
+        min-width: 900px;
+    }
+    
+    .payout-page .data-table th,
+    .payout-page .data-table td {
+        padding: 0.75rem 1rem;
+    }
+    
+    .payout-page .user-profile {
+        gap: 0.5rem;
+    }
+    
+    .payout-page .user-avatar {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .payout-page .pagination-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .payout-page .main-content {
+        padding: 0.75rem;
+    }
+    
+    .payout-page .data-table {
+        min-width: 800px;
+        font-size: 12px;
+    }
+    
+    .payout-page .data-table th,
+    .payout-page .data-table td {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .payout-page .user-avatar {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .payout-page .status-badge {
+        font-size: 8px;
+        padding: 0.2rem 0.5rem;
+        min-width: 60px;
+        width: 60px;
+    }
+}

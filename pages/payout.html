@@ -4,23 +4,351 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payout - Star Parking Ltd.</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="payout-page">
     <div id="navbar-container"></div>
     <div id="sidebar-container"></div>
     <main class="main-content">
-        <div class="dashboard-header">
-            <h1>Payout Management</h1>
+        
+        
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="filters-container">
+                <div class="filter-left">
+                    <div class="filter-dropdown">
+                        <i class="fas fa-filter"></i>
+                        <span>Filter payouts</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    
+                    <div class="search-filter">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="filter-search-input" placeholder="Search">
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="transaction-btn">
+                        <i class="fas fa-plus"></i>
+                        Transaction
+                    </button>
+                    <button class="export-btn">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="page-content">
-            <div class="content-card">
-                <h2>Payout Dashboard</h2>
-                <p>Manage payouts and payment processing.</p>
+
+        <!-- Transaction Table -->
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Charges</th>
+                        <th>Refund</th>
+                        <th>Fees</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge approval">Approval</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge approval">Approval</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge approval">Approval</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge approval">Approval</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge approval">Approval</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox">
+                        </td>
+                        <td>
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="../assets/user-avatar.jpg" alt="Sierra Ferguson">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name">Sierra Ferguson</div>
+                                    <div class="user-id">**** (*) ***-**-**</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Sept 14, 2022</td>
+                        <td><span class="status-badge approval">Approval</span></td>
+                        <td class="amount-display">£14,980</td>
+                        <td class="amount-display">£0.00</td>
+                        <td class="amount-display">-£134.78</td>
+                        <td class="amount-display">£5,980.54</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination-info">
+                <span>1-2 of items</span>
+            </div>
+            
+            <div class="pagination-controls">
+                <div class="page-info">
+                    <span>Page 1 of 1</span>
+                </div>
+                <div class="pagination-buttons">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </main>

@@ -4,23 +4,272 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History - Star Parking Ltd.</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages/history.css">
 </head>
 <body>
     <div id="navbar-container"></div>
     <div id="sidebar-container"></div>
     <main class="main-content">
-        <div class="dashboard-header">
-            <h1>History</h1>
+        
+        
+        <!-- Header Controls Section -->
+        <div class="header-controls">
+            <button class="month-selection-btn">Month Selection</button>
+            <button class="export-btn">Export</button>
         </div>
+
         <div class="page-content">
-            <div class="content-card">
-                <h2>Transaction History</h2>
-                <p>View historical records and transactions.</p>
+            <!-- All Transactions Section -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2>All Transactions</h2>
+                    <div class="section-actions">
+                        <button class="export-btn">Export</button>
+                        <button class="sort-by-btn">
+                            <i class="fas fa-chevron-down"></i>
+                            Sort By
+                        </button>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Date</th>
+                                <th>Client</th>
+                                <th>Car Type</th>
+                                <th>Plan</th>
+                                <th>Pickup Date</th>
+                                <th>Return Date</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BK10245</td>
+                                <td>24-04-05</td>
+                                <td>Alex Johnson</td>
+                                <td>
+                                    <div class="car-type">
+                                        <span class="car-model">Sedan</span>
+                                        <span class="car-code">SX485</span>
+                                    </div>
+                                </td>
+                                <td>Standard</td>
+                                <td>24-04-05</td>
+                                <td>24-04-10</td>
+                                <td>$250</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>BK10246</td>
+                                <td>24-04-02</td>
+                                <td>Maria Lopez</td>
+                                <td>
+                                    <div class="car-type">
+                                        <span class="car-model">SUV</span>
+                                        <span class="car-code">LV907</span>
+                                    </div>
+                                </td>
+                                <td>Premium</td>
+                                <td>24-04-08</td>
+                                <td>24-04-15</td>
+                                <td>$450</td>
+                                <td><span class="status-badge status-in-route">In Route</span></td>
+                            </tr>
+                            <tr>
+                                <td>BK10247</td>
+                                <td>24-04-02</td>
+                                <td>Chris Green</td>
+                                <td>
+                                    <div class="car-type">
+                                        <span class="car-model">Compact</span>
+                                        <span class="car-code">CM672</span>
+                                    </div>
+                                </td>
+                                <td>Economy</td>
+                                <td>24-04-10</td>
+                                <td>24-04-12</td>
+                                <td>$180</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- All Check in & Check out Section -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2>All Check in & Check out</h2>
+                    <div class="section-actions">
+                        <button class="export-btn">Export</button>
+                        <button class="sort-by-btn">
+                            <i class="fas fa-chevron-down"></i>
+                            Sort By
+                        </button>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Check - in</th>
+                                <th>Check - Out</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mon 13 Sep</td>
+                                <td>09:34 AM</td>
+                                <td>17:34 AM</td>
+                            </tr>
+                            <tr>
+                                <td>Mon 14 Sep</td>
+                                <td>09:24 AM</td>
+                                <td>16:34 AM</td>
+                            </tr>
+                            <tr>
+                                <td>Mon 15 Sep</td>
+                                <td>09:14 AM</td>
+                                <td>16:34 AM</td>
+                            </tr>
+                            <tr>
+                                <td>Mon 16 Sep</td>
+                                <td>09:35 AM</td>
+                                <td>17:39 AM</td>
+                            </tr>
+                            <tr>
+                                <td>Mon 17 Sep</td>
+                                <td>09:32 AM</td>
+                                <td>17:44 AM</td>
+                            </tr>
+                            <tr>
+                                <td>Mon 18 Sep</td>
+                                <td>09:33 AM</td>
+                                <td>17:54 AM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- All Activities Section -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2>All Activities</h2>
+                    <div class="section-actions">
+                        <button class="export-btn">Export</button>
+                        <button class="sort-by-btn">
+                            <i class="fas fa-chevron-down"></i>
+                            Sort By
+                        </button>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table activities-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>User</th>
+                                <th>Car Comfort</th>
+                                <th>Ordered Time</th>
+                                <th>Start Location</th>
+                                <th>Finish Location</th>
+                                <th>Income</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="activity1">
+                                        <label for="activity1"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-profile-activity">
+                                        <div class="user-avatar-activity">
+                                            <img src="../assets/user-avatar-1.jpg" alt="Siarra Ferguson" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                            <div class="avatar-fallback">SF</div>
+                                        </div>
+                                        <div class="user-info">
+                                            <div class="user-name">Siarra Ferguson</div>
+                                            <div class="user-phone">+998 (90) 435-46-15</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="comfort-type">simple</span></td>
+                                <td><span class="ordered-time">04.12.2025 20:30</span></td>
+                                <td><span class="location">ANDOVER HOUSE, GEORGE YARD</span></td>
+                                <td><span class="location">105 LONDON STREET</span></td>
+                                <td><span class="income-badge">£20.50</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="activity2">
+                                        <label for="activity2"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-profile-activity">
+                                        <div class="user-avatar-activity">
+                                            <img src="../assets/user-avatar-2.jpg" alt="Siarra Ferguson" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                            <div class="avatar-fallback">SF</div>
+                                        </div>
+                                        <div class="user-info">
+                                            <div class="user-name">Siarra Ferguson</div>
+                                            <div class="user-phone">+998 (90) 435-46-15</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="comfort-type">elite</span></td>
+                                <td><span class="ordered-time">04.12.2025 20:24</span></td>
+                                <td><span class="location">8 CAMP ROAD, NORTH CAMP, FARNBOROUGH</span></td>
+                                <td><span class="location">COMMERCE HOUSE, HIGH ST</span></td>
+                                <td><span class="income-badge">£34.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="activity3">
+                                        <label for="activity3"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-profile-activity">
+                                        <div class="user-avatar-activity">
+                                            <img src="../assets/user-avatar-3.jpg" alt="Siarra Ferguson" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                            <div class="avatar-fallback">SF</div>
+                                        </div>
+                                        <div class="user-info">
+                                            <div class="user-name">Siarra Ferguson</div>
+                                            <div class="user-phone">+998 (90) 435-46-15</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="comfort-type">convenient</span></td>
+                                <td><span class="ordered-time">04.12.2025 20:23</span></td>
+                                <td><span class="location">8 CAMP ROAD, NORTH CAMP, FARNBOROUGH</span></td>
+                                <td><span class="location">7-8 CLIFFORD STREET</span></td>
+                                <td><span class="income-badge">£30.50</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </main>

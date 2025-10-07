@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget - Star Parking Ltd.</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages/budget.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +15,251 @@
     <div id="navbar-container"></div>
     <div id="sidebar-container"></div>
     <main class="main-content">
-        <div class="dashboard-header">
-            <h1>Budget Management</h1>
-        </div>
-        <div class="page-content">
-            <div class="content-card">
-                <h2>Budget Overview</h2>
-                <p>Manage budgets and financial planning.</p>
+        <!-- Overall Set Budget Section -->
+        <div class="overall-budget-section">
+            <div class="budget-layout">
+                <!-- First Column (3/4 width) -->
+                <div class="budget-first-column">
+                    <!-- Row 1: Title -->
+                    <div class="budget-title-row">
+                        <h1 class="budget-main-title">Overall Set Budget</h1>
+                    </div>
+                    
+                    <!-- Row 2: Summary Cards -->
+                    <div class="budget-summary-row">
+                        <div class="budget-summary-container">
+                            <div class="budget-summary-card">
+                                <div class="budget-amount">£2000.00</div>
+                                <div class="budget-subtitle">Total Budget</div>
+                            </div>
+                            <div class="budget-summary-card">
+                                <div class="budget-amount">£555.50</div>
+                                <div class="budget-subtitle">Amount Paid</div>
+                            </div>
+                            <div class="budget-summary-card">
+                                <div class="budget-amount">£1444.50</div>
+                                <div class="budget-subtitle">Remaining Budget</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 3: Charts -->
+                    <div class="budget-charts-row">
+                        <!-- First Chart Container -->
+                        <div class="chart-container">
+                            <div class="chart-content-wrapper">
+                                <!-- Left Column - Text Information (30%) -->
+                                <div class="chart-text-column">
+                                    <div class="chart-text-row">
+                                        <span class="chart-label">Remaining Budget</span>
+                                    </div>
+                                    <div class="chart-text-row">
+                                        <span class="chart-percentage">75%</span>
+                                    </div>
+                                    <div class="chart-text-row">
+                                        <span class="chart-paid-label">You Paid</span>
+                                    </div>
+                                    <div class="chart-text-row">
+                                        <span class="chart-amount-label">£555.50 amount</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Column - Circle Chart (70%) -->
+                                <div class="chart-circle-column">
+                                    <div class="chart-circle">
+                                        <div class="chart-center">
+                                            <div class="chart-amount">£2000.00</div>
+                                        </div>
+                                        <div class="chart-tooltip">
+                                            £1444.50
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Second Chart Container -->
+                        <div class="chart-container">
+                            <div class="chart-content-wrapper">
+                                <!-- Left Column - Text Information (30%) -->
+                                <div class="chart-text-column">
+                                    <div class="chart-text-row">
+                                        <span class="chart-label">Amount Paid</span>
+                                    </div>
+                                    <div class="chart-text-row">
+                                        <span class="chart-percentage">£555.50</span>
+                                    </div>
+                                    <div class="chart-text-row">
+                                        <span class="chart-paid-label">You have</span>
+                                    </div>
+                                    <div class="chart-text-row">
+                                        <span class="chart-amount-label">£1444.50 Remaining</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Column - Circle Chart (70%) -->
+                                <div class="chart-circle-column">
+                                    <div class="chart-circle amount-paid">
+                                        <div class="chart-center">
+                                            <div class="chart-amount">£555.50</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Column (1/4 width) -->
+                <div class="budget-second-column">
+                    <!-- Row 1: Buttons -->
+                    <div class="budget-buttons-row">
+                        <button class="budget-dropdown-btn">
+                            <i class="fas fa-chevron-down"></i>
+                            September
+                        </button>
+                        <button class="budget-export-btn">
+                            <i class="fas fa-download"></i>
+                            Export
+                        </button>
+                    </div>
+                    
+                    <!-- Row 2: Booking Status Chart -->
+                    <div class="booking-status-section">
+                        <h3 class="booking-status-title">Booking Status</h3>
+                        <div class="booking-chart">
+                            <div class="donut-chart">
+                                <!-- Chart content will be here -->
+                            </div>
+                        </div>
+                        <div class="booking-legend">
+                            <div class="legend-item">
+                                <div class="legend-color repeat"></div>
+                                <span class="legend-label">Repeat Passengers</span>
+                                <span class="legend-percentage">(40%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color new"></div>
+                                <span class="legend-label">New Passengers</span>
+                                <span class="legend-percentage">(35%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color canceled"></div>
+                                <span class="legend-label">Cancelled</span>
+                                <span class="legend-percentage">(25%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        
+        <!-- Individual Set Budget Section -->
+        <div class="individual-budget-section">
+            <div class="section-header">
+                <h2 class="section-title">Individual Set Budget</h2>
+                <select class="sort-by-selector">
+                    <option>Sort By</option>
+                    <option>Date</option>
+                    <option>Amount</option>
+                    <option>Status</option>
+                </select>
+            </div>
+            
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Driver</th>
+                        <th>Date</th>
+                        <th>Client</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th>Remaining Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Driver">
+                            <div class="driver-info">
+                                <img src="../assets/driver1.jpg" alt="Driver" class="driver-avatar">
+                                <span class="driver-name">Molinga Danshana</span>
+                            </div>
+                        </td>
+                        <td data-label="Date">25-04-01</td>
+                        <td data-label="Client">Alex Johnson</td>
+                        <td data-label="Payment">£100</td>
+                        <td data-label="Status"><span class="status-badge">Paid</span></td>
+                        <td data-label="Remaining Amount">
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 70%;"></div>
+                                </div>
+                                <span class="progress-percentage">70%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Driver">
+                            <div class="driver-info">
+                                <img src="../assets/driver2.jpg" alt="Driver" class="driver-avatar">
+                                <span class="driver-name">Alex Jay</span>
+                            </div>
+                        </td>
+                        <td data-label="Date">25-04-02</td>
+                        <td data-label="Client">Maria Lopez</td>
+                        <td data-label="Payment">£70</td>
+                        <td data-label="Status"><span class="status-badge">Paid</span></td>
+                        <td data-label="Remaining Amount">
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%;"></div>
+                                </div>
+                                <span class="progress-percentage">45%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Driver">
+                            <div class="driver-info">
+                                <img src="../assets/driver3.jpg" alt="Driver" class="driver-avatar">
+                                <span class="driver-name">Nigun Lekrnal</span>
+                            </div>
+                        </td>
+                        <td data-label="Date">25-04-02</td>
+                        <td data-label="Client">Chris Green</td>
+                        <td data-label="Payment">£130</td>
+                        <td data-label="Status"><span class="status-badge">Paid</span></td>
+                        <td data-label="Remaining Amount">
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 25%;"></div>
+                                </div>
+                                <span class="progress-percentage">25%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Driver">
+                            <div class="driver-info">
+                                <img src="../assets/driver4.jpg" alt="Driver" class="driver-avatar">
+                                <span class="driver-name">Nigun Lekrnal</span>
+                            </div>
+                        </td>
+                        <td data-label="Date">25-04-03</td>
+                        <td data-label="Client">Jasmine Keith</td>
+                        <td data-label="Payment">£300</td>
+                        <td data-label="Status"><span class="status-badge">Paid</span></td>
+                        <td data-label="Remaining Amount">
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%;"></div>
+                                </div>
+                                <span class="progress-percentage">85%</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </main>
     <script src="../js/components.js"></script>

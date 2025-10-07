@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details - Star Parking Ltd.</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages/details.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +15,278 @@
     <div id="navbar-container"></div>
     <div id="sidebar-container"></div>
     <main class="main-content">
-        <div class="dashboard-header">
-            <h1>Details</h1>
-        </div>
-        <div class="page-content">
-            <div class="content-card">
-                <h2>Detailed Information</h2>
-                <p>View and manage detailed information and records.</p>
+        <div class="details-container">
+            <!-- User Details Section -->
+            <section class="details-section">
+                <div class="section-title-row">
+                    <h2 class="section-title">User Details</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <form class="user-details-form">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter your name...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter your name...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email ID <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="info@xyz.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" id="mobile" name="mobile" placeholder="+91 - 98958 56000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" placeholder="xxxxxxxxx">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postcode">Postcode</label>
+                        <input type="text" id="postcode" name="postcode" placeholder="xxxxxxxxx">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo">Photo</label>
+                        <div class="photo-upload">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C10.3431 2 9 3.34315 9 5C9 6.65685 10.3431 8 12 8C13.6569 8 15 6.65685 15 5C15 3.34315 13.6569 2 12 2Z" fill="#B7B7B7"/>
+                                <path d="M12 9C8.13401 9 5 12.134 5 16V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V16C19 12.134 15.866 9 12 9Z" fill="#B7B7B7"/>
+                            </svg>
+                            <span>Attach your Photo</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="status">Status <span class="required">*</span></label>
+                        <input type="text" id="status" name="status" placeholder="xxxxxxxxx">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <div class="password-input">
+                            <input type="password" id="password" name="password" placeholder="Enter your password">
+                            <button type="button" class="password-toggle">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 4.5C7.5 4.5 3.75 7.5 2.25 12C3.75 16.5 7.5 19.5 12 19.5C16.5 19.5 20.25 16.5 21.75 12C20.25 7.5 16.5 4.5 12 4.5Z" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="password-note">NOTE: Only input password if you want to update existing passwords</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter your password again">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role">Role <span class="required">*</span></label>
+                        <select id="role" name="role">
+                            <option value="">0 - 0</option>
+                        </select>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Staff Details Section -->
+            <section class="details-section">
+                <div class="section-title-row">
+                    <h2 class="section-title">Staff Details</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <form class="staff-details-form">
+                    <div class="form-group">
+                        <label for="designation">Designation <span class="required">*</span></label>
+                        <input type="text" id="designation" name="designation" placeholder="DEMO">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hourlyRate">Hourly Rate <span class="required">*</span></label>
+                        <input type="text" id="hourlyRate" name="hourlyRate" placeholder="Enter your name...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="accessPass">Access pass Number <span class="required">*</span></label>
+                        <input type="text" id="accessPass" name="accessPass" placeholder="01">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="niNumber">NI Number <span class="required">*</span></label>
+                        <input type="text" id="niNumber" name="niNumber" placeholder="+91 - 98958 56000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="employeeNum">Employee Num <span class="required">*</span></label>
+                        <input type="text" id="employeeNum" name="employeeNum" placeholder="01">
+                    </div>
+                </form>
+            </section>
+
+            <!-- Document Details Section -->
+            <section class="details-section">
+                <div class="section-title-row">
+                    <h2 class="section-title">Document Details</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <form class="document-details-form">
+                    <div class="form-group">
+                        <label for="docLabel1">Label <span class="required">*</span></label>
+                        <input type="text" id="docLabel1" name="docLabel1" placeholder="DEMO">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="docFile1">File <span class="required">*</span></label>
+                        <div class="file-upload">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 2V8H20" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 13H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 17H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 9H9H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Upload File</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="docVisibility1">Visibility <span class="required">*</span></label>
+                        <input type="text" id="docVisibility1" name="docVisibility1" placeholder="Public">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="docStatus1">Status <span class="required">*</span></label>
+                        <input type="text" id="docStatus1" name="docStatus1" placeholder="Active">
+                    </div>
+                </form>
+                
+                <button type="button" class="upload-document-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 15V3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Upload Document
+                </button>
+            </section>
+
+            <!-- Add More Section -->
+            <section class="details-section add-more-section">
+                <div class="section-title-row">
+                    <button type="button" class="section-close-btn" onclick="removeAddMoreSection(this)">&times;</button>
+                    <h2 class="section-title">Add More</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <form class="add-more-form">
+                    <div class="form-group">
+                        <label for="addLabel1">Label <span class="required">*</span></label>
+                        <input type="text" id="addLabel1" name="addLabel1" placeholder="DEMO">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addFile1">File <span class="required">*</span></label>
+                        <div class="file-upload">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 2V8H20" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 13H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 17H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 9H9H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Upload File</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addVisibility1">Visibility <span class="required">*</span></label>
+                        <input type="text" id="addVisibility1" name="addVisibility1" placeholder="Public">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addStatus1">Status <span class="required">*</span></label>
+                        <input type="text" id="addStatus1" name="addStatus1" placeholder="Active">
+                    </div>
+                </form>
+                
+                <button type="button" class="upload-document-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 15V3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Upload Document
+                </button>
+            </section>
+
+            <!-- Second Add More Section -->
+            <section class="details-section add-more-section">
+                <div class="section-title-row">
+                    <button type="button" class="section-close-btn" onclick="removeAddMoreSection(this)">&times;</button>
+                    <h2 class="section-title">Add More</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <form class="add-more-form">
+                    <div class="form-group">
+                        <label for="addLabel2">Label <span class="required">*</span></label>
+                        <input type="text" id="addLabel2" name="addLabel2" placeholder="DEMO">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addFile2">File <span class="required">*</span></label>
+                        <div class="file-upload">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 2V8H20" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 13H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 17H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 9H9H8" stroke="#B7B7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Upload File</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addVisibility2">Visibility <span class="required">*</span></label>
+                        <input type="text" id="addVisibility2" name="addVisibility2" placeholder="Public">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addStatus2">Status <span class="required">*</span></label>
+                        <input type="text" id="addStatus2" name="addStatus2" placeholder="Active">
+                    </div>
+                </form>
+                
+                <button type="button" class="upload-document-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 15V3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Upload Document
+                </button>
+            </section>
+
+            <!-- Add More Button -->
+            <button type="button" class="add-more-btn" onclick="addNewSection()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Add More
+            </button>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button type="button" class="btn-back">Back to List</button>
+                <button type="submit" class="btn-save">Save</button>
             </div>
         </div>
     </main>

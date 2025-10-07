@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger Menu Test - Star Parking Ltd.</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Test specific styles */
+        .test-content {
+            margin-top: 80px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .test-instructions {
+            background: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #335ae6;
+        }
+        .status-indicator {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem;
+            font-weight: 600;
+        }
+        .status-ready {
+            background: #10b981;
+            color: white;
+        }
+        .status-error {
+            background: #ef4444;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <div id="sidebar-container"></div>
+    
+    <main class="main-content">
+        <div class="test-content">
+            <h1>Hamburger Menu Test Page</h1>
+            
+            <div class="test-instructions">
+                <h3>🍔 Test Instructions:</h3>
+                <ol>
+                    <li><strong>Click the hamburger menu icon</strong> (☰) in the top-left corner of the navbar</li>
+                    <li><strong>Verify the sidebar appears as an overlay</strong> from the left side</li>
+                    <li><strong>Check that content stays in place</strong> (doesn't move right)</li>
+                    <li><strong>Click on the dark overlay</strong> to close the sidebar</li>
+                    <li><strong>Press ESC key</strong> to close the sidebar</li>
+                    <li><strong>Click the X button</strong> in the navbar to close it</li>
+                </ol>
+                <p><strong>Expected Behavior:</strong> Sidebar should appear on top of content, not push it to the right. Background should be dimmed when sidebar is open.</p>
+            </div>
+            
+            <div id="test-status">
+                <h3>Component Status:</h3>
+                <div id="navbar-status" class="status-indicator">Navbar: Loading...</div>
+                <div id="sidebar-status" class="status-indicator">Sidebar: Loading...</div>
+                <div id="js-status" class="status-indicator">JavaScript: Loading...</div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h3>Debug Information:</h3>
+                <pre id="debug-info" style="background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 6px; text-align: left; max-height: 300px; overflow-y: auto;"></pre>
+            </div>
+            
+            <!-- Content to demonstrate overlay effect -->
+            <div style="margin-top: 2rem; padding: 2rem; background: #f8f9fa; border-radius: 8px; border: 2px solid #e9ecef;">
+                <h3>🎯 Sample Content Area</h3>
+                <p>This content should <strong>stay in place</strong> when the sidebar opens. The sidebar should appear as an overlay on top of this content.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="padding: 1rem; background: white; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <h4>Card 1</h4>
+                        <p>This card should not move when sidebar opens.</p>
+                    </div>
+                    <div style="padding: 1rem; background: white; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <h4>Card 2</h4>
+                        <p>This card should stay in its original position.</p>
+                    </div>
+                    <div style="padding: 1rem; background: white; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <h4>Card 3</h4>
+                        <p>This card should remain visible (partially) when sidebar is open.</p>
+                    </div>
+                </div>
+                <p><strong>When sidebar is open:</strong> This content should be partially covered by the sidebar and dimmed by the overlay background.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/components.js"></script>
+    <script>
+        // Test script to verify functionality
+        let debugLog = [];
+        
+        function addDebugInfo(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            debugLog.push(`[${timestamp}] ${message}`);
+            document.getElementById('debug-info').textContent = debugLog.join('\n');
+        }
+        
+        function updateStatus(component, status) {
+            const element = document.getElementById(`${component}-status`);
+            element.textContent = `${component.charAt(0).toUpperCase() + component.slice(1)}: ${status}`;
+            element.className = `status-indicator ${status.toLowerCase().includes('ready') || status.toLowerCase().includes('loaded') ? 'status-ready' : 'status-error'}`;
+        }
+        
+        // Override console.log to capture debug messages
+        const originalLog = console.log;
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addDebugInfo(args.join(' '));
+        };
+        
+        // Override console.error to capture errors
+        const originalError = console.error;
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addDebugInfo('ERROR: ' + args.join(' '));
+        };
+        
+        addDebugInfo('Test page initialized');
+        updateStatus('js', 'Ready');
+        
+        // Listen for components loaded event
+        window.addEventListener('componentsLoaded', function(e) {
+            addDebugInfo('Components loaded event received');
+            updateStatus('navbar', 'Ready');
+            updateStatus('sidebar', 'Ready');
+            
+            // Test if elements exist
+            setTimeout(() => {
+                const hamburger = document.getElementById('hamburgerMenu');
+                const sidebar = document.getElementById('sidebar');
+                
+                if (hamburger) {
+                    addDebugInfo('✅ Hamburger menu element found');
+                    
+                    // Add click listener to test
+                    hamburger.addEventListener('click', () => {
+                        addDebugInfo('🍔 Hamburger menu clicked!');
+                    });
+                } else {
+                    addDebugInfo('❌ Hamburger menu element NOT found');
+                    updateStatus('navbar', 'Error - Hamburger not found');
+                }
+                
+                if (sidebar) {
+                    addDebugInfo('✅ Sidebar element found');
+                    
+                    // Monitor sidebar state changes
+                    const observer = new MutationObserver((mutations) => {
+                        mutations.forEach((mutation) => {
+                            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                                const isOpen = sidebar.classList.contains('open');
+                                addDebugInfo(`📋 Sidebar state changed: ${isOpen ? 'OPEN' : 'CLOSED'}`);
+                            }
+                        });
+                    });
+                    
+                    observer.observe(sidebar, { attributes: true });
+                } else {
+                    addDebugInfo('❌ Sidebar element NOT found');
+                    updateStatus('sidebar', 'Error - Sidebar not found');
+                }
+            }, 500);
+        });
+        
+        // Monitor for any errors
+        window.addEventListener('error', function(e) {
+            addDebugInfo(`❌ JavaScript Error: ${e.message}`);
+            updateStatus('js', 'Error');
+        });
+    </script>
+</body>
+</html>

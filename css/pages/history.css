@@ -1,0 +1,470 @@
+/*
+ * History Page Styles
+ * Styles for the history page with transaction, check-in/out, and activity tables
+ */
+
+/* Header Controls Section */
+.header-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 0 20px;
+}
+
+/* Month Selection Button */
+.month-selection-btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #e1e1e1;
+    background: transparent;
+    border: 1px solid #e1e1e1;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.month-selection-btn:hover {
+    background-color: #e1e1e1;
+    color: #333;
+}
+
+/* Export Button */
+.export-btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #4d4d4d;
+    background: transparent;
+    border: 1px solid #a9b4be;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    background-color: #a9b4be;
+    color: white;
+}
+
+/* Section Cards */
+.section-card {
+    background: white;
+    border-radius: 42px;
+    border: 1px solid #b3b3b3;
+    margin-bottom: 24px;
+    overflow: hidden;
+    padding: 0px 30px;
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    /* border-bottom: 1px solid #f0f0f0; */
+}
+
+.section-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #222222;
+    margin: 0;
+}
+
+/* Section Actions */
+.section-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* View All Button */
+.view-all-btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+    background-color: #335ae6;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: #2a4bc7;
+}
+
+/* Sort By Button */
+.sort-by-btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #666666;
+    background-color: transparent;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sort-by-btn:hover {
+    background-color: #f8f9fa;
+    border-color: #d1d5db;
+}
+
+.sort-by-btn i {
+    font-size: 12px;
+}
+
+/* Table Container */
+.table-container {
+    overflow-x: auto;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Data Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.data-table th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: black;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+    background-color: #ebebeb;
+}
+
+.data-table td {
+    padding: 1rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Status indicators */
+.data-table td:last-child {
+    font-weight: 500;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    display: inline-block;
+    padding: 4px 2px;
+    border-radius: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    min-width: 70px;
+}
+
+.status-completed {
+    background-color: #28a745;
+    color: #ffffff;
+    border: 1px solid #28a745;
+}
+
+.status-in-route {
+    background-color: #ffc107;
+    color: #212529;
+    border: 1px solid #ffc107;
+}
+
+.status-pending {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.data-table tbody tr td:last-child {
+    color: inherit;
+}
+
+.data-table tbody tr:nth-child(3) td:last-child {
+    color: inherit;
+}
+
+/* Activities Table Specific Styles */
+.activities-table {
+    background: white;
+}
+
+/* Transactions Table Specific Styles */
+.transactions-table {
+    background: white;
+}
+
+.transactions-table th,
+.transactions-table td {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
+
+.transactions-table th {
+    border-bottom: 1px solid #e5e7eb !important;
+    font-size: 13px;
+    color: #666666;
+    font-weight: 500;
+    padding: 16px 12px;
+}
+
+.transactions-table td {
+    border-bottom: 1px solid #f3f4f6 !important;
+    padding: 16px 12px;
+    vertical-align: middle;
+}
+
+/* Car Type Column Styling */
+.car-type {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.car-model {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #111827;
+}
+
+.car-code {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.activities-table th:first-child {
+    width: 40px;
+    text-align: center;
+}
+
+.activities-table th {
+    font-size: 13px;
+    color: #666666;
+    font-weight: 500;
+    padding: 16px 12px;
+}
+
+.activities-table td {
+    padding: 16px 12px;
+    vertical-align: middle;
+}
+
+/* Checkbox Styles */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #335ae6;
+    cursor: pointer;
+}
+
+/* User Profile in Activities */
+.user-profile-activity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+}
+
+.user-avatar-activity {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.user-avatar-activity img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #111827;
+}
+
+.user-phone {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* Comfort Type Styles */
+.comfort-type {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #374151;
+    text-transform: lowercase;
+}
+
+/* Ordered Time Styles */
+.ordered-time {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* Location Styles */
+.location {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.4;
+    max-width: 180px;
+    word-wrap: break-word;
+}
+
+/* Income Badge Styles */
+.income-badge {
+    display: inline-block;
+    background-color: #e0e7ff;
+    color: #3730a3;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    text-align: center;
+    min-width: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-controls {
+        padding: 0 16px;
+        gap: 8px;
+    }
+    
+    .month-selection-btn,
+    .export-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+    
+    .section-actions {
+        align-self: flex-end;
+        gap: 8px;
+    }
+    
+    .view-all-btn,
+    .section-actions .export-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .table-container {
+        padding: 0 16px 16px;
+    }
+    
+    .data-table {
+        font-size: 12px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .month-selection-btn,
+    .export-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .section-header {
+        padding: 12px 16px;
+    }
+    
+    .section-header h2 {
+        font-size: 16px;
+    }
+    
+    .table-container {
+        padding: 0 12px 12px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+}

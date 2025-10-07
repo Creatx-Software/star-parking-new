@@ -912,7 +912,7 @@ body {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: #f9fafb;
+    /* background: #f9fafb; */
     border-radius: 8px;
 }
 
@@ -1059,7 +1059,7 @@ body {
     flex: 2;
     margin-left: 1rem;
     padding-left: 2rem;
-    border-left: 1px solid #e5e7eb;
+    
 }
 
 .profile-description h4 {
@@ -1764,7 +1764,7 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border: 1px solid var(--border-color);
-    margin-bottom: 1.5rem;
+    margin: 0 !important;
 }
 
 .data-table {
@@ -1849,7 +1849,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.25rem 0.75rem;
+    padding: 0.25rem 0.1rem;
     border-radius: 20px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;

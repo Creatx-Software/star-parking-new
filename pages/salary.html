@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salary - Star Parking Ltd.</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,17 +14,208 @@
     <div id="navbar-container"></div>
     <div id="sidebar-container"></div>
     <main class="main-content">
-        <div class="dashboard-header">
-            <h1>Salary Management</h1>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Payroll Overview</h1>
+            <div class="header-actions">
+                <div class="month-selector">
+                    <select id="monthSelector">
+                        <option value="september">September</option>
+                        <option value="october">October</option>
+                        <option value="november">November</option>
+                    </select>
+                </div>
+                <button class="export-btn">
+                    <i class="fas fa-download"></i>
+                    Export
+                </button>
+                <button class="add-payroll-btn">
+                    <i class="fas fa-plus"></i>
+                    Add a New Payroll
+                </button>
+            </div>
         </div>
-        <div class="page-content">
-            <div class="content-card">
-                <h2>Salary Overview</h2>
-                <p>Manage salary information and calculations.</p>
+
+        <!-- Overview Stats Cards -->
+        <div class="overview-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Total Payroll This Month</span>
+                    <div class="stat-value">£273,500</div>
+                    <div class="stat-change positive">
+                        <span class="change-text">+8.2% from last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Total Employees Paid</span>
+                    <div class="stat-value">134</div>
+                    <div class="stat-change positive">
+                        <span class="change-text">+3 from last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Average Salary</span>
+                    <div class="stat-value">£3,632</div>
+                    <div class="stat-change positive">
+                        <span class="change-text">+$94 from last month</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <!-- Monthly Payroll Trend Chart -->
+            <div class="chart-card monthly-trend-card">
+                <div class="chart-header">
+                    <h3>Monthly Payroll Trend</h3>
+                    <div class="chart-selector">
+                        <select id="trendPeriod">
+                            <option value="6">Last 6 months</option>
+                            <option value="12">Last 12 months</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-stats">
+                    <div class="chart-value">£269,700</div>
+                    <div class="chart-change positive">+2.4% from last year</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="monthlyTrendChart" width="600" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- Payroll Distribution Chart -->
+            <div class="chart-card distribution-card">
+                <div class="chart-header">
+                    <h3>Payroll Distribution by Department</h3>
+                </div>
+                <div class="chart-stats">
+                    <div class="chart-value">£273,500</div>
+                    <div class="chart-change positive">+2.4% from last year</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="distributionChart" width="300" height="300"></canvas>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot salary"></span>
+                        <span>Salary</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot bonus"></span>
+                        <span>Bonus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payroll List Section -->
+        <div class="payroll-list-section">
+            <div class="list-header">
+                <h3>Payroll List</h3>
+                <div class="list-controls">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search" id="employeeSearch">
+                    </div>
+                    <select class="department-filter" id="departmentFilter">
+                        <option value="">Select department</option>
+                        <option value="drivers">Drivers</option>
+                        <option value="finance">Finance</option>
+                        <option value="operations">Operations</option>
+                        <option value="hr">HR</option>
+                        <option value="others">Others</option>
+                    </select>
+                    <select class="status-filter" id="statusFilter">
+                        <option value="">Status</option>
+                        <option value="paid">Paid</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="payroll-table">
+                    <thead>
+                        <tr>
+                            <th>Name <i class="fas fa-sort"></i></th>
+                            <th>Department <i class="fas fa-sort"></i></th>
+                            <th>Pay Date <i class="fas fa-sort"></i></th>
+                            <th>Status <i class="fas fa-sort"></i></th>
+                            <th>Base Salary <i class="fas fa-sort"></i></th>
+                            <th>Bonuses <i class="fas fa-sort"></i></th>
+                            <th>Total Salary <i class="fas fa-sort"></i></th>
+                            <th>Salary deduction <i class="fas fa-sort"></i></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="payrollTableBody">
+                        <tr>
+                            <td>Sierra Ferguson</td>
+                            <td>Drivers</td>
+                            <td>Mar 31, 2025</td>
+                            <td><span class="status-badge paid">Paid</span></td>
+                            <td>£4,000</td>
+                            <td>£500</td>
+                            <td>£4,500</td>
+                            <td class="deduction-amount">£1,336</td>
+                            <td>
+                                <button class="manage-btn">Manage</button>
+                                <button class="more-btn"><i class="fas fa-ellipsis-v"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sierra Ferguson</td>
+                            <td>Drivers</td>
+                            <td>Mar 31, 2025</td>
+                            <td><span class="status-badge paid">Paid</span></td>
+                            <td>£4,000</td>
+                            <td>£500</td>
+                            <td>£4,500</td>
+                            <td class="deduction-amount">£1,336</td>
+                            <td>
+                                <button class="manage-btn">Manage</button>
+                                <button class="more-btn"><i class="fas fa-ellipsis-v"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sierra Ferguson</td>
+                            <td>Drivers</td>
+                            <td>Mar 31, 2025</td>
+                            <td><span class="status-badge paid">Paid</span></td>
+                            <td>£4,000</td>
+                            <td>£500</td>
+                            <td>£4,500</td>
+                            <td class="deduction-amount">£1,336</td>
+                            <td>
+                                <button class="manage-btn">Manage</button>
+                                <button class="more-btn"><i class="fas fa-ellipsis-v"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
     <script src="../js/components.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/salary.js"></script>
 </body>
 </html>

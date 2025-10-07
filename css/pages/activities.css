@@ -1,0 +1,447 @@
+/* Activities Page Styles */
+.main-content {
+    background-color: white;
+    min-height: calc(100vh - 70px);
+    padding: 2rem !important;
+}
+
+.activities-container {
+    /* padding: 20px; */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Filter Bar Styles */
+.filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+}
+
+.filter-item {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #101010;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-item:hover {
+    background-color: #f3f4f6;
+}
+
+.filter-item.active {
+    color: #335AE6;
+    border-bottom: 2px solid #335AE6;
+    border-radius: 0px;
+}
+
+.filter-item .count {
+    font-weight: 400;
+    margin-left: 4px;
+}
+
+.export-btn-container {
+    margin-left: auto;
+}
+
+.export-btn {
+    background: white;
+        border: 2px solid #a9b4be;
+        color: #4d4d4d;
+        padding: 12px 24px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        white-space: nowrap;
+}
+
+.export-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* Table Styles */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    min-width: 100%;
+}
+
+.activities-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* Minimum width for horizontal scroll on mobile */
+}
+
+.activities-table thead {
+    background-color: #f7f8fa;
+}
+
+.activities-table th {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: 'poppins', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: #505470;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    background-color: #f7f8fa;
+    z-index: 10;
+    text-transform: capitalize;
+}
+
+.activities-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: middle;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    color: #374151;
+}
+
+.activities-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+}
+
+.user-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #111827;
+    line-height: 20px;
+}
+
+.user-phone {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: #6b7280;
+    line-height: 16px;
+}
+
+/* Income Button Styles */
+.income-btn {
+    display: inline-block;
+    padding: 4px 25px;
+    background-color: #d6e0ff;
+    color: #335AE6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 60px;
+}
+
+/* Pagination Styles */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 16px;
+    font-family: 'Poppins', sans-serif;
+    border:none;
+    box-shadow: none;
+}
+
+.pagination-info {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #374151;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background-color: #335AE6;
+    border-color: #335AE6;
+    color: white;
+}
+
+.pagination-btn.page-num {
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .activities-container {
+        padding: 16px;
+    }
+    
+    .filter-bar {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    
+    .filter-item {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    
+    .export-btn-container {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 12px;
+    }
+    
+    .export-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .table-container {
+        margin: 0 -16px 24px -16px;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: 1px solid #e5e7eb;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .table-wrapper {
+        padding: 0 16px;
+    }
+    
+    .activities-table th {
+        padding: 12px 16px;
+        font-size: 22px;
+        font-weight: 600;
+        color: red !important; 
+        text-transform: lowercase;
+    }
+    
+    .activities-table td {
+        padding: 12px 16px;
+        font-size: 10px;
+    }
+    
+    .user-info {
+        gap: 8px;
+    }
+    
+    .avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .user-name {
+        font-size: 13px;
+    }
+    
+    .user-phone {
+        font-size: 11px;
+    }
+    
+    .income-btn {
+        padding: 4px 25px;
+        font-size: 10px;
+        min-width: 50px;
+    }
+    
+    .pagination-container {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+    
+    .pagination-controls {
+        gap: 6px;
+    }
+    
+    .pagination-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-bar {
+        gap: 12px;
+    }
+    
+    .filter-item {
+        font-size: 13px;
+        padding: 4px 8px;
+    }
+    
+    .activities-table {
+        min-width: 700px; /* Ensure horizontal scroll on very small screens */
+    }
+    
+    .activities-table th {
+        padding: 10px 12px;
+        font-size: 10px;
+    }
+    
+    .activities-table td {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+    
+    .user-info {
+        gap: 6px;
+    }
+    
+    .avatar {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .user-name {
+        font-size: 12px;
+    }
+    
+    .user-phone {
+        font-size: 10px;
+    }
+}
+
+/* Scrollbar Styling for Mobile */
+.table-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Additional mobile improvements */
+@media (max-width: 640px) {
+    .filter-bar {
+        padding: 12px 0;
+        margin-bottom: 16px;
+    }
+    
+    .filter-item {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+    
+    .activities-table {
+        min-width: 650px; /* Even smaller minimum for very small screens */
+    }
+    
+    .activities-table th {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+    
+    .activities-table td {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+    
+    .user-name {
+        font-size: 11px;
+    }
+    
+    .user-phone {
+        font-size: 9px;
+    }
+}
+
+/* Fix for main content area */
+.main-content {
+    padding: 0;
+}
+
+.activities-container {
+    background: white;
+    min-height: 100vh;
+}

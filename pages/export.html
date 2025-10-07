@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Export - Star Parking Ltd.</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages/export.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +15,248 @@
     <div id="navbar-container"></div>
     <div id="sidebar-container"></div>
     <main class="main-content">
-        <div class="dashboard-header">
-            <h1>Export Data</h1>
-        </div>
+        
         <div class="page-content">
-            <div class="content-card">
-                <h2>Data Export</h2>
-                <p>Export reports and data in various formats.</p>
+            
+            <!-- Profile Card -->
+            <div class="profile-main-card">
+                <div class="profile-left">
+                    <div class="profile-avatar-large">
+                        <img src="../assets/profile-image.jpg" alt="Profile"
+                            onerror="this.outerHTML='<div class=\'profile-placeholder\'><i class=\'fas fa-user\'></i></div>'">
+                    </div>
+                    <div class="profile-details-left">
+                        <div class="profile-field">
+                            <span class="field-label">Name:</span>
+                            <span class="field-value">Malinga Dorshana</span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Birth Date:</span>
+                            <span class="field-value">12.12.2003</span>
+                        </div>
+                        <div class="profile-field">
+                            <span class="field-label">Balance:</span>
+                            <span class="field-value">£20.50</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-right">
+                    <div class="profile-description">
+                        <h4>Description</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipisci temporibus officia natus accusamus
+                            molestias recusandae quasi sed architecto sunt omnis aut, quibusdam porro et dolorem consequuntur, error
+                            repellat blanditiis rerum.</p>
+                        <!-- <div class="edit-btn-container">
+                                        <button class="edit-profile-btn">Edit</button>
+                                    </div> -->
+                    </div>
+                </div>
             </div>
+
+            <!-- Data Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Check - in</th>
+                            <th>Check - Out</th>
+                            <th>Working hours</th>
+                            <th>Earnings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mon 01 Sep</td>
+                            <td>09:34 AM</td>
+                            <td>17:34 AM</td>
+                            <td>08 h</td>
+                            <td>£80</td>
+                        </tr>
+                        <tr>
+                            <td>Tue 02 Sep</td>
+                            <td>09:24 AM</td>
+                            <td>16:34 AM</td>
+                            <td>07 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Wed 03 Sep</td>
+                            <td>09:14 AM</td>
+                            <td>16:34 AM</td>
+                            <td>07 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Thu 04 Sep</td>
+                            <td>09:35 AM</td>
+                            <td>17:39 AM</td>
+                            <td>08 h</td>
+                            <td>£85</td>
+                        </tr>
+                        <tr>
+                            <td>Fri 05 Sep</td>
+                            <td>09:32 AM</td>
+                            <td>17:44 AM</td>
+                            <td>08 h</td>
+                            <td>£80</td>
+                        </tr>
+                        <tr>
+                            <td>Sat 06 Sep</td>
+                            <td>09:34 AM</td>
+                            <td>17:24 AM</td>
+                            <td>08 h</td>
+                            <td>£50</td>
+                        </tr>
+                        <tr>
+                            <td>Sun 07 Sep</td>
+                            <td>09:54 AM</td>
+                            <td>16:34 AM</td>
+                            <td>07 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Mon 08 Sep</td>
+                            <td>09:34 AM</td>
+                            <td>16:34 AM</td>
+                            <td>08 h</td>
+                            <td>£80</td>
+                        </tr>
+                        <tr>
+                            <td>Tue 09 Sep</td>
+                            <td>09:46 AM</td>
+                            <td>17:59 AM</td>
+                            <td>08 h</td>
+                            <td>£80</td>
+                        </tr>
+                        <tr>
+                            <td>Wed 10 Sep</td>
+                            <td>09:47 AM</td>
+                            <td>17:43 AM</td>
+                            <td>08 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Thu 11 Sep</td>
+                            <td>09:34 AM</td>
+                            <td>17:24 AM</td>
+                            <td>08 h</td>
+                            <td>£85</td>
+                        </tr>
+                        <tr>
+                            <td>Fri 12 Sep</td>
+                            <td>09:34 AM</td>
+                            <td>16:34 AM</td>
+                            <td>07 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Sat 13 Sep</td>
+                            <td>09:14 AM</td>
+                            <td>16:24 AM</td>
+                            <td>08 h</td>
+                            <td>£60</td>
+                        </tr>
+                        <tr>
+                            <td>Sun 14 Sep</td>
+                            <td>09:36 AM</td>
+                            <td>17:59 AM</td>
+                            <td>08 h</td>
+                            <td>£60</td>
+                        </tr>
+                        <tr>
+                            <td>Mon 15 Sep</td>
+                            <td>09:37 AM</td>
+                            <td>17:44 AM</td>
+                            <td>08 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Tue 16 Sep</td>
+                            <td>09:34 AM</td>
+                            <td>17:52 AM</td>
+                            <td>08 h</td>
+                            <td>£50</td>
+                        </tr>
+                        <tr>
+                            <td>Wed 17 Sep</td>
+                            <td>09:54 AM</td>
+                            <td>16:34 AM</td>
+                            <td>07 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Thu 18 Sep</td>
+                            <td>09:54 AM</td>
+                            <td>16:34 AM</td>
+                            <td>07 h</td>
+                            <td>£80</td>
+                        </tr>
+                        <tr>
+                            <td>Fri 19 Sep</td>
+                            <td>09:56 AM</td>
+                            <td>17:59 AM</td>
+                            <td>08 h</td>
+                            <td>£60</td>
+                        </tr>
+                        <tr>
+                            <td>Sat 20 Sep</td>
+                            <td>09:37 AM</td>
+                            <td>17:44 AM</td>
+                            <td>08 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Sun 21 Sep</td>
+                            <td>09:34 AM</td>
+                            <td>17:24 AM</td>
+                            <td>08 h</td>
+                            <td>£50</td>
+                        </tr>
+                        <tr>
+                            <td>Mon 22 Sep</td>
+                            <td>09:24 AM</td>
+                            <td>16:34 AM</td>
+                            <td>07 h</td>
+                            <td>£70</td>
+                        </tr>
+                        <tr>
+                            <td>Tue 23 Sep</td>
+                            <td>09:55 AM</td>
+                            <td>18:34 AM</td>
+                            <td>08 h</td>
+                            <td>£80</td>
+                        </tr>
+                        <tr>
+                            <td>Wed 24 Sep</td>
+                            <td>09:36 AM</td>
+                            <td>16:39 AM</td>
+                            <td>08 h</td>
+                            <td>£80</td>
+                        </tr>
+                        <tr>
+                            <td>Thu 25 Sep</td>
+                            <td>09:55 AM</td>
+                            <td>17:44 AM</td>
+                            <td>08 h</td>
+                            <td>£70</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Summary Totals -->
+            <div class="table-summary">
+                <div class="summary-item"></div>
+                <div class="summary-item">
+                    <span class="summary-value">100 h</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-value">£500</span>
+                </div>
+            </div>
+
+            
         </div>
     </main>
     <script src="../js/components.js"></script>

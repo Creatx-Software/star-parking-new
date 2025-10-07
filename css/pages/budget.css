@@ -1,0 +1,595 @@
+/* Budget Page Styles */
+
+/* Overall Set Budget Section */
+.overall-budget-section {
+    background-color: #f3f3f3;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.budget-layout {
+    display: flex;
+    gap: 50px;
+    max-width: 100%;
+}
+
+/* First Column (3/4 width) */
+.budget-first-column {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0px 30px;
+}
+
+/* Budget Title Row */
+.budget-title-row {
+    width: 100%;
+}
+
+.budget-main-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 24px;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+/* Budget Summary Row */
+.budget-summary-row {
+    width: 100%;
+}
+
+.budget-summary-container {
+    background-color: #ccd6f5;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.budget-summary-card {
+    text-align: center;
+    flex: 1;
+    border-right: 0.5px solid #666b7b;
+}
+
+.budget-summary-card:last-child {
+    border-right: none;
+}
+
+.budget-amount {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #3d61e7;
+    margin: 0 0 8px 0;
+    line-height: 1;
+}
+
+.budget-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #3e414a;
+    margin: 0;
+}
+
+/* Budget Charts Row */
+.budget-charts-row {
+    display: flex;
+    gap: 20px;
+}
+
+.chart-container {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.chart-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+
+/* Left Column - Text Information (30%) */
+.chart-text-column {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+}
+
+.chart-text-row {
+    margin-bottom: 8px;
+}
+
+.chart-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #777777;
+    display: block;
+}
+
+.chart-percentage {
+    font-family: 'inter', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1F1F1F;
+    display: block;
+    line-height: 1;
+}
+
+.chart-paid-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #777777;
+    display: block;
+}
+
+.chart-amount-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1F1F1F;
+    display: block;
+}
+
+/* Right Column - Circle Chart (70%) */
+.chart-circle-column {
+    flex: 0 0 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.chart-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(#4F75FF 0deg 270deg, #E8E8E8 270deg 360deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.chart-circle.amount-paid {
+    background: conic-gradient(#4F75FF 0deg 100deg, #E8E8E8 100deg 360deg);
+}
+
+.chart-circle::before {
+    content: '';
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.chart-center {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.chart-amount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1F1F1F;
+    line-height: 1;
+}
+
+.chart-tooltip {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    background: #6B7280;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 3;
+}
+
+.chart-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #6B7280;
+}
+
+/* Second Column (1/4 width) */
+.budget-second-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Budget Buttons Row */
+.budget-buttons-row {
+    display: flex;
+    gap: 30px;
+}
+
+.budget-dropdown-btn {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #777777;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    width: 50%;
+}
+
+.budget-dropdown-btn:hover {
+    background: #f9fafb;
+}
+
+.budget-export-btn {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #4d4d4d;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 50%;
+}
+
+.budget-export-btn:hover {
+    background: #f9fafb;
+}
+
+/* Booking Status Section */
+.booking-status-section {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-status-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1F1F1F;
+    margin: 0 0 20px 0;
+}
+
+.booking-chart {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.donut-chart {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #3d61e7 0deg 144deg,
+        #404040 144deg 270deg,
+        #e5e5e5 270deg 360deg
+    );
+    position: relative;
+}
+
+.donut-chart::before {
+    content: '';
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.booking-legend {
+    margin-top: auto;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-color.repeat { 
+    background-color: #3d61e7; 
+}
+
+.legend-color.new { 
+    background-color: #404040; 
+}
+
+.legend-color.canceled { 
+    background-color: #e5e5e5; 
+}
+
+.legend-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #777777;
+    flex: 1;
+}
+
+/* Individual Set Budget Section */
+.individual-budget-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin: 40px 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.sort-by-selector {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #777777;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.budget-table th {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #777777;
+    text-align: left;
+    padding: 15px 16px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #f9fafb;
+}
+
+.budget-table td {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #1F1F1F;
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.budget-table tr:hover {
+    background: #f9fafb;
+}
+
+.driver-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.driver-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e5e5e5;
+}
+
+.driver-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.status-badge {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #FF4D4F;
+    background: #FFE6E6;
+    border-radius: 6px;
+    padding: 4px 8px;
+    display: inline-block;
+}
+
+.progress-container {
+    position: relative;
+    width: 80px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e5e5e5;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #3d61e7;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.progress-percentage {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: #777777;
+    position: absolute;
+    right: 0;
+    top: -16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .budget-layout {
+        flex-direction: column;
+    }
+    
+    .budget-first-column,
+    .budget-second-column {
+        flex: none;
+    }
+    
+    .budget-charts-row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .overall-budget-section {
+        padding: 20px;
+    }
+    
+    .individual-budget-section {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .budget-summary-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .budget-buttons-row {
+        flex-direction: column;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .budget-table {
+        font-size: 12px;
+    }
+    
+    .budget-table th,
+    .budget-table td {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .budget-main-title {
+        font-size: 24px;
+    }
+    
+    .budget-amount {
+        font-size: 28px;
+    }
+    
+    .budget-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .budget-table thead,
+    .budget-table tbody,
+    .budget-table th,
+    .budget-table td,
+    .budget-table tr {
+        display: block;
+    }
+    
+    .budget-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .budget-table tr {
+        border: 1px solid #e5e5e5;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        padding: 16px;
+        background: white;
+    }
+    
+    .budget-table td {
+        border: none;
+        position: relative;
+        padding: 8px 0;
+        padding-left: 50%;
+    }
+    
+    .budget-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 500;
+        color: #777777;
+        font-size: 12px;
+    }
+}

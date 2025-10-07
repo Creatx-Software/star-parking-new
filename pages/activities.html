@@ -4,27 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activities - Star Parking Ltd.</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages/activities.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="navbar-container"></div>
     <div id="sidebar-container"></div>
     <main class="main-content">
-        <div class="dashboard-header">
-            <h1>Activities</h1>
-        </div>
-        <div class="page-content">
-            <div class="content-card">
-                <h2>Activity Dashboard</h2>
-                <p>Track and manage all parking activities.</p>
+        <div class="activities-container">
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-item active" data-filter="pending">
+                    Pending <span class="count">(5)</span>
+                </div>
+                <div class="filter-item" data-filter="in-progress">
+                    In progress <span class="count">(1)</span>
+                </div>
+                <div class="filter-item" data-filter="completed">
+                    Completed <span class="count">(70)</span>
+                </div>
+                <div class="filter-item" data-filter="upcoming">
+                    Upcoming <span class="count">(0)</span>
+                </div>
+                <div class="filter-item" data-filter="pre-cancelled">
+                    Pre cancelled <span class="count">(26)</span>
+                </div>
+                <div class="filter-item" data-filter="cancelled">
+                    Cancelled by driver <span class="count">(1)</span>
+                </div>
+                <div class="export-btn-container">
+                    <button class="export-btn">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="table-container">
+                <div class="table-wrapper">
+                    <table class="activities-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Car Comfort</th>
+                                <th>Ordered Time</th>
+                                <th>Start Location</th>
+                                <th>Finish Location</th>
+                                <th>Income</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activities-tbody">
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="avatar">
+                                            <img src="../assets/Medal .png" alt="Sierra Ferguson">
+                                        </div>
+                                        <div class="user-details">
+                                            <div class="user-name">Sierra Ferguson</div>
+                                            <div class="user-phone">(252) 555-0126</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>simple</td>
+                                <td>04.12.2025 20:30</td>
+                                <td>ANDOVER HOUSE, GEORGE YARD</td>
+                                <td>105 LONDON STREET</td>
+                                <td>
+                                    <div class="income-btn">£20.50</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="avatar">
+                                            <img src="../assets/Medal .png" alt="Sierra Ferguson">
+                                        </div>
+                                        <div class="user-details">
+                                            <div class="user-name">Sierra Ferguson</div>
+                                            <div class="user-phone">(252) 555-0126</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>extra</td>
+                                <td>04.12.2025 20:24</td>
+                                <td>8 CAMP ROAD, NORTH CAMP, FARNBOROUGH</td>
+                                <td>COMMERCE HOUSE, HIGH ST</td>
+                                <td>
+                                    <div class="income-btn">£34.00</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="avatar">
+                                            <img src="../assets/Medal .png" alt="Sierra Ferguson">
+                                        </div>
+                                        <div class="user-details">
+                                            <div class="user-name">Sierra Ferguson</div>
+                                            <div class="user-phone">(252) 555-0126</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>convenient</td>
+                                <td>04.12.2025 20:23</td>
+                                <td>8 CAMP ROAD, NORTH CAMP, FARNBOROUGH</td>
+                                <td>7-9 CLIFFORD STREET</td>
+                                <td>
+                                    <div class="income-btn">£30.50</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="avatar">
+                                            <img src="../assets/Medal .png" alt="Sierra Ferguson">
+                                        </div>
+                                        <div class="user-details">
+                                            <div class="user-name">Sierra Ferguson</div>
+                                            <div class="user-phone">+688 (55) 586-88-10</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>convenient</td>
+                                <td>17.11.2025 12:16</td>
+                                <td>CLAYMONT HOUSE, 145-149 KILMARNOCK ROAD</td>
+                                <td>DEVONSHIRE HOUSE, ELDON STREET</td>
+                                <td>
+                                    <div class="income-btn">£20.00</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="avatar">
+                                            <img src="../assets/Medal .png" alt="Sierra Ferguson">
+                                        </div>
+                                        <div class="user-details">
+                                            <div class="user-name">Sierra Ferguson</div>
+                                            <div class="user-phone">(406) (55) 586-88-10</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>convenient</td>
+                                <td>04.12.2025 20:30</td>
+                                <td>57 GREAT GEORGE STREET</td>
+                                <td>7-9 CLIFFORD STREET</td>
+                                <td>
+                                    <div class="income-btn">£23.50</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-container">
+                <div class="pagination-info">
+                    1–2 of items
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn prev" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn page-num active">1</button>
+                    <button class="pagination-btn page-num">2</button>
+                    <button class="pagination-btn next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </main>
     <script src="../js/components.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/activities.js"></script>
 </body>
 </html>
