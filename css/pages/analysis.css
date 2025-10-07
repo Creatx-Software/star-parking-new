@@ -1,9 +1,13 @@
 /* Analysis Page Styles */
+.main-content{
+    background-color: white;
+}
 
 .analysis-page {
     padding: 1.5rem;
     /* max-width: 1200px; */
     margin: 0 auto;
+    background-color: white;
 }
 
 /* First Row - Stats Cards and Controls */
@@ -19,7 +23,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    
+
 }
 
 .analysis-stat-card {
@@ -28,6 +32,9 @@
     padding: 1.5rem;
     position: relative;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .analysis-stat-card:hover {
@@ -39,15 +46,21 @@
     font-size: 2rem;
     font-weight: 700;
     color: #2563eb;
-    margin-bottom: 0.5rem;
+    margin: 0;
     display: block;
+    text-align: center;
+}
+
+.analysis-stat-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .analysis-stat-label {
     font-size: 0.9rem;
     color: #374151;
-    margin-bottom: 0.75rem;
-    display: block;
+    margin: 0;
 }
 
 .analysis-stat-change {
@@ -55,7 +68,7 @@
     align-items: center;
     gap: 0.25rem;
     font-size: 0.8rem;
-    color: #16a34a;
+    color: #41444d;
 }
 
 .analysis-stat-change i {
@@ -65,15 +78,30 @@
 /* Controls Container */
 .analysis-controls {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: flex-end;
     gap: 1rem;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .analysis-month-selector {
     position: relative;
     min-width: 150px;
+}
+
+.analysis-month-selector::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 8px solid #6b7280;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .analysis-dropdown {
@@ -96,28 +124,14 @@
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-.analysis-dropdown::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid #6b7280;
-    pointer-events: none;
-}
-
 .analysis-export-btn {
-    background: #2563eb;
-    color: white;
-    border: none;
+    background: none;
+    color: #4d4d4d;
+    border: solid 1px #a9b4be;
     border-radius: 8px;
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -144,8 +158,6 @@
 
 .analysis-chart-section {
     background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
     padding: 1.5rem;
 }
 
@@ -174,8 +186,6 @@
 
 .analysis-data-section {
     background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
     padding: 1.5rem;
 }
 
@@ -193,6 +203,213 @@
 .analysis-data-subtitle {
     font-size: 0.85rem;
     color: #6b7280;
+}
+
+/* Chart Styles */
+.chart-container {
+    position: relative;
+    height: 320px;
+    width: 100%;
+}
+
+#earningsChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Custom Chart Tooltip */
+.chartjs-tooltip {
+    background: #1f2937;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.chartjs-tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #1f2937;
+}
+
+/* User Engagement Section */
+.user-engagement-section {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.user-engagement-header {
+    margin-bottom: 1.5rem;
+}
+
+.user-engagement-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+    letter-spacing: 0.05em;
+}
+
+.user-engagement-chart-container {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+#userEngagementChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* User Engagement Metrics */
+.user-engagement-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.engagement-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.metric-progress {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.metric-max {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    text-align: right;
+}
+
+/* Trip Overview Styles */
+.trip-overview-chart-container {
+    position: relative;
+    height: 250px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+#tripOverviewChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Repeat Passengers Section */
+.repeat-passengers-section {
+    margin-top: 1.5rem;
+}
+
+.repeat-passengers-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.passenger-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.passenger-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.passenger-item:hover {
+    background-color: #f9fafb;
+}
+
+.passenger-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e5e7eb;
+    padding: 8px;
+}
+
+.passenger-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.passenger-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+.passenger-phone {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.passenger-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.passenger-orders,
+.passenger-income {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.passenger-orders strong,
+.passenger-income strong {
+    color: #111827;
+    font-weight: 600;
 }
 
 /* Responsive Design */
@@ -217,6 +434,23 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+    
+    .user-engagement-metrics {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .passenger-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .passenger-stats {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -236,5 +470,27 @@
         flex-direction: column;
         align-items: stretch;
         gap: 0.75rem;
+    }
+    
+    .user-engagement-metrics {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .user-engagement-chart-container {
+        height: 180px;
+    }
+    
+    .trip-overview-chart-container {
+        height: 200px;
+    }
+    
+    .passenger-item {
+        padding: 0.5rem;
+    }
+    
+    .passenger-avatar {
+        width: 32px;
+        height: 32px;
     }
 }

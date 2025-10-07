@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/pages/analysis.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div id="navbar-container"></div>
@@ -25,34 +26,42 @@
                 <div class="analysis-stats-container">
                     <div class="analysis-stat-card">
                         <span class="analysis-stat-value">£1845.50</span>
-                        <span class="analysis-stat-label">Total Revenue</span>
-                        <div class="analysis-stat-change">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>15.3%</span>
+                        <div class="analysis-stat-bottom-row">
+                            <span class="analysis-stat-label">Total Revenue</span>
+                            <div class="analysis-stat-change">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>15.3%</span>
+                            </div>
                         </div>
                     </div>
                     <div class="analysis-stat-card">
                         <span class="analysis-stat-value">60</span>
-                        <span class="analysis-stat-label">Total Trip</span>
-                        <div class="analysis-stat-change">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>12.5%</span>
+                        <div class="analysis-stat-bottom-row">
+                            <span class="analysis-stat-label">Total Trip</span>
+                            <div class="analysis-stat-change">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>12.5%</span>
+                            </div>
                         </div>
                     </div>
                     <div class="analysis-stat-card">
                         <span class="analysis-stat-value">04</span>
-                        <span class="analysis-stat-label">Repeat Passengers</span>
-                        <div class="analysis-stat-change">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>11.01%</span>
+                        <div class="analysis-stat-bottom-row">
+                            <span class="analysis-stat-label">Repeat Passengers</span>
+                            <div class="analysis-stat-change">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>11.01%</span>
+                            </div>
                         </div>
                     </div>
                     <div class="analysis-stat-card">
                         <span class="analysis-stat-value">88h</span>
-                        <span class="analysis-stat-label">Total Hours</span>
-                        <div class="analysis-stat-change">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>5.6%</span>
+                        <div class="analysis-stat-bottom-row">
+                            <span class="analysis-stat-label">Total Hours</span>
+                            <div class="analysis-stat-change">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>5.6%</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,9 +95,42 @@
                         </select>
                     </div>
                     <div class="chart-container">
-                        <!-- Chart content would go here -->
-                        <div style="height: 300px; background: #f8fafc; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #64748b;">
-                            Chart visualization area
+                        <canvas id="earningsChart"></canvas>
+                    </div>
+                    
+                    <!-- User Engagement Section -->
+                    <div class="user-engagement-section">
+                        <div class="user-engagement-header">
+                            <h3 class="user-engagement-title">USER ENGAGEMENT</h3>
+                        </div>
+                        <div class="user-engagement-chart-container">
+                            <canvas id="userEngagementChart"></canvas>
+                        </div>
+                        <div class="user-engagement-metrics">
+                            <div class="engagement-metric">
+                                <span class="metric-label">Amount</span>
+                                <span class="metric-value">£680</span>
+                                <div class="metric-progress">
+                                    <div class="progress-bar" style="width: 34%;"></div>
+                                </div>
+                                <span class="metric-max">£2000.00</span>
+                            </div>
+                            <div class="engagement-metric">
+                                <span class="metric-label">Hours</span>
+                                <span class="metric-value">180h</span>
+                                <div class="metric-progress">
+                                    <div class="progress-bar" style="width: 75%;"></div>
+                                </div>
+                                <span class="metric-max">240h</span>
+                            </div>
+                            <div class="engagement-metric">
+                                <span class="metric-label">Trip</span>
+                                <span class="metric-value">48</span>
+                                <div class="metric-progress">
+                                    <div class="progress-bar" style="width: 48%;"></div>
+                                </div>
+                                <span class="metric-max">100</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,9 +142,59 @@
                         <p class="analysis-data-subtitle">Weekly performance data</p>
                     </div>
                     <div class="data-content">
-                        <!-- Data visualization would go here -->
-                        <div style="height: 300px; background: #f8fafc; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #64748b;">
-                            Data visualization area
+                        <div class="trip-overview-chart-container">
+                            <canvas id="tripOverviewChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Repeat Passengers Section -->
+                    <div class="repeat-passengers-section">
+                        <h3 class="repeat-passengers-title">Repeat Passengers</h3>
+                        <div class="passenger-list">
+                            <div class="passenger-item">
+                                <img src="../assets/file-user-line.png" alt="Profile" class="passenger-avatar">
+                                <div class="passenger-info">
+                                    <span class="passenger-name">Mahafrm Hasanli</span>
+                                    <span class="passenger-phone">+998 (99) 485-46-46</span>
+                                </div>
+                                <div class="passenger-stats">
+                                    <div class="passenger-orders">Orders: <strong>5</strong></div>
+                                    <div class="passenger-income">Income: <strong>£98</strong></div>
+                                </div>
+                            </div>
+                            <div class="passenger-item">
+                                <img src="../assets/file-user-line.png" alt="Profile" class="passenger-avatar">
+                                <div class="passenger-info">
+                                    <span class="passenger-name">Gina Garza</span>
+                                    <span class="passenger-phone">+998 (97) 581-10-16</span>
+                                </div>
+                                <div class="passenger-stats">
+                                    <div class="passenger-orders">Orders: <strong>5</strong></div>
+                                    <div class="passenger-income">Income: <strong>£15</strong></div>
+                                </div>
+                            </div>
+                            <div class="passenger-item">
+                                <img src="../assets/file-user-line.png" alt="Profile" class="passenger-avatar">
+                                <div class="passenger-info">
+                                    <span class="passenger-name">Brian Reed</span>
+                                    <span class="passenger-phone">+998 (76) 485-42-20</span>
+                                </div>
+                                <div class="passenger-stats">
+                                    <div class="passenger-orders">Orders: <strong>5</strong></div>
+                                    <div class="passenger-income">Income: <strong>£23</strong></div>
+                                </div>
+                            </div>
+                            <div class="passenger-item">
+                                <img src="../assets/file-user-line.png" alt="Profile" class="passenger-avatar">
+                                <div class="passenger-info">
+                                    <span class="passenger-name">Tammy Spencer</span>
+                                    <span class="passenger-phone">+998 (50) 485-10-32</span>
+                                </div>
+                                <div class="passenger-stats">
+                                    <div class="passenger-orders">Orders: <strong>5</strong></div>
+                                    <div class="passenger-income">Income: <strong>£98</strong></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,5 +203,6 @@
     </main>
     <script src="../js/components.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/analysis.js"></script>
 </body>
 </html>
