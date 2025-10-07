@@ -28,6 +28,7 @@
 @import 'pages/history.css';
 @import 'pages/salary.css';
 @import 'pages/salary-deduction.css';
+@import 'pages/payout.css';
 
 /* Utility Styles */
 @import 'utils/utilities.css';
