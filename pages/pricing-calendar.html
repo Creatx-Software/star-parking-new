@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing + Calendar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="../css/pages/pricing-calendar.css">
+  <style>
+    /* Smooth scrolling for internal scroll containers */
+    .smooth-scroll { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="p-4 max-w-7xl mx-auto">
+    <!-- MOBILE SUMMARY BAR -->
+    <div id="mobileSummary" class="md:hidden border rounded-lg p-3 bg-white mb-4">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <div class="text-sm text-gray-500">Selected day</div>
+          <div id="mobileSelected" class="text-lg font-semibold">Day 1 • £0.00</div>
+        </div>
+        <details class="w-40">
+          <summary class="cursor-pointer select-none text-sm px-3 py-2 border rounded-md text-center">Actions</summary>
+          <div class="mt-2 border rounded-md p-2 bg-white">
+            <div class="flex flex-col gap-2">
+              <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                <i data-lucide="pencil-line" class="w-4 h-4"></i> Edit
+              </button>
+              <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2 text-white bg-red-600">
+                <i data-lucide="trash-2" class="w-4 h-4"></i> Delete
+              </button>
+              <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                <i data-lucide="sticky-note" class="w-4 h-4"></i> Add Note
+              </button>
+              <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i> View Products
+              </button>
+              <div class="relative">
+                <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                  <i data-lucide="share-2" class="w-4 h-4"></i> Share
+                </button>
+                <!-- Simple dropdown imitation -->
+                <div class="mt-2 grid gap-2">
+                  <button class="inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                    <i data-lucide="download" class="w-4 h-4"></i> Download PDF
+                  </button>
+                  <button class="inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                    <i data-lucide="share-2" class="w-4 h-4"></i> WhatsApp Screenshot
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+      <div class="mt-3 h-64">
+        <div id="mobileCalendar" class="h-full"></div>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-4 items-stretch">
+      <!-- LEFT: Actions + Calendar (desktop) -->
+      <div class="hidden md:flex md:w-80 border rounded-lg p-3 flex-col bg-white">
+        <div class="flex flex-col gap-2">
+          <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+            <i data-lucide="pencil-line" class="w-4 h-4"></i> Edit
+          </button>
+          <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2 text-white bg-red-600">
+            <i data-lucide="trash-2" class="w-4 h-4"></i> Delete
+          </button>
+          <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+            <i data-lucide="sticky-note" class="w-4 h-4"></i> Add Note
+          </button>
+          <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+            <i data-lucide="shopping-cart" class="w-4 h-4"></i> View Products
+          </button>
+          <div class="relative">
+            <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+              <i data-lucide="share-2" class="w-4 h-4"></i> Share
+            </button>
+            <!-- Simple dropdown imitation -->
+            <div class="mt-2 grid gap-2">
+              <button class="inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                <i data-lucide="download" class="w-4 h-4"></i> Download PDF
+              </button>
+              <button class="inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                <i data-lucide="share-2" class="w-4 h-4"></i> WhatsApp Screenshot
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-3 h-px bg-gray-200"></div>
+
+        <div class="flex-1 min-h-0">
+          <div id="desktopCalendar" class="h-full"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Price grid -->
+      <div id="priceGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 flex-1 self-stretch"></div>
+    </div>
+
+    <!-- Container for additional sections -->
+    <div id="additionalSections" class="mt-6"></div>
+
+    <!-- Add New Button -->
+    <div class="mt-6 flex justify-center">
+      <button id="addNewBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md flex items-center gap-2 transition">
+        <i data-lucide="plus" class="w-4 h-4"></i>
+        Add New
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Pricing data - only showing 31 days
+    const pricingData = [
+      45, 42, 55, 60, 62, 67, 72, 75, 77, 80,
+      82, 85, 90, 100, 100, 105, 110, 115, 120, 120,
+      125, 125, 125, 130, 130, 135, 140, 145, 150, 155,
+      155
+    ];
+
+    // State
+    let selectedDay = 1;
+    let sectionCounter = 0;
+
+    // Helpers
+    function chunk(array, size) {
+      const out = [];
+      for (let i = 0; i < array.length; i += size) out.push(array.slice(i, i + size));
+      return out;
+    }
+
+    function createNewSection() {
+      sectionCounter++;
+      const sectionId = `section-${sectionCounter}`;
+      
+      const sectionHtml = `
+        <div class="additional-section" id="${sectionId}">
+          <button class="close-section-btn" onclick="removeSection('${sectionId}')">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+          <div class="section-content">
+            <div class="flex flex-col md:flex-row gap-4 items-stretch">
+              <!-- LEFT: Actions + Calendar (desktop) -->
+              <div class="hidden md:flex md:w-80 border rounded-lg p-3 flex-col bg-white">
+                <div class="flex flex-col gap-2">
+                  <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pencil-line" class="lucide lucide-pencil-line w-4 h-4"><path d="M13 21h8"></path><path d="m15 5 4 4"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg> Edit
+                  </button>
+                  <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2 text-white bg-red-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trash-2" class="lucide lucide-trash-2 w-4 h-4"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg> Delete
+                  </button>
+                  <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sticky-note" class="lucide lucide-sticky-note w-4 h-4"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"></path><path d="M15 3v4a2 2 0 0 0 2 2h4"></path></svg> Add Note
+                  </button>
+                  <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shopping-cart" class="lucide lucide-shopping-cart w-4 h-4"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg> View Products
+                  </button>
+                  <div class="relative">
+                    <button class="w-full justify-start inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="share-2" class="lucide lucide-share-2 w-4 h-4"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg> Share
+                    </button>
+                    <!-- Simple dropdown imitation -->
+                    <div class="mt-2 grid gap-2">
+                      <button class="inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="download" class="lucide lucide-download w-4 h-4"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg> Download PDF
+                      </button>
+                      <button class="inline-flex items-center gap-2 border rounded-md px-3 py-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="share-2" class="lucide lucide-share-2 w-4 h-4"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg> WhatsApp Screenshot
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="my-3 h-px bg-gray-200"></div>
+
+                <div class="flex-1 min-h-0">
+                  <div class="h-full">
+                    <div class="flex flex-col h-full">
+                      <div class="sticky top-0 z-10 grid grid-cols-7 text-center text-xs font-semibold text-gray-500 bg-white border-b">
+                        <div class="py-2">Mo</div><div class="py-2">Tu</div><div class="py-2">We</div><div class="py-2">Th</div><div class="py-2">Fr</div><div class="py-2">Sa</div><div class="py-2">Su</div>
+                      </div>
+                      <div class="flex-1 overflow-y-auto rounded-lg border smooth-scroll bg-white">
+                        <div class="grid grid-cols-7 auto-rows-[minmax(40px,1fr)] p-1">
+                          ${Array.from({length: 31}, (_, i) => i + 1).map(day => `
+                            <button data-day="${day}" data-section="${sectionId}" class="calendar-day-button m-1 rounded-md border text-sm flex items-center justify-center px-2 py-2 transition ${day === 1 ? 'bg-blue-100 border-blue-500 font-semibold' : 'hover:bg-gray-100'}">${day}</button>
+                          `).join('')}
+                          <!-- Add extra and padding buttons after day 31 -->
+                          <button data-day="extra" data-section="${sectionId}" class="calendar-extra-button m-1 rounded-md border text-sm flex items-center justify-center px-2 py-2 transition">Extra</button>
+                          <button data-day="padding" data-section="${sectionId}" class="calendar-padding-button m-1 rounded-md border text-sm flex items-center justify-center px-2 py-2 transition">Padding</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT: Price grid -->
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 flex-1 self-stretch" data-price-grid="${sectionId}">
+                ${pricingData.map((price, idx) => {
+                  const day = idx + 1;
+                  const isSelected = day === 1;
+                  return `
+                    <div data-card="${day}" data-section="${sectionId}" class="border rounded-md p-4 text-center shadow-sm transition cursor-pointer ${isSelected ? 'bg-blue-50 border-blue-500 ring-1 ring-blue-400' : 'bg-white'}">
+                      <div class="text-sm font-semibold">Day ${day}</div>
+                      <div class="mt-1 text-base font-bold">£${price.toFixed(2)}</div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      const additionalSections = document.getElementById('additionalSections');
+      additionalSections.insertAdjacentHTML('beforeend', sectionHtml);
+      
+      // Attach event listeners to the new section
+      attachSectionEventListeners(sectionId);
+      
+      // Initialize Lucide icons for the new section
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function attachSectionEventListeners(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      // Attach calendar button listeners
+      const calendarButtons = section.querySelectorAll('[data-day]');
+      calendarButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const day = e.currentTarget.getAttribute('data-day');
+          const currentSection = e.currentTarget.getAttribute('data-section');
+          
+          if (day === 'extra' || day === 'padding') {
+            console.log(`Clicked ${day} button in section ${currentSection}`);
+            return;
+          }
+          
+          const dayNum = Number(day);
+          setSectionSelectedDay(currentSection, dayNum);
+        });
+      });
+
+      // Attach price grid listeners
+      const priceCards = section.querySelectorAll('[data-card]');
+      priceCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          const day = Number(e.currentTarget.getAttribute('data-card'));
+          const currentSection = e.currentTarget.getAttribute('data-section');
+          setSectionSelectedDay(currentSection, day);
+        });
+      });
+    }
+
+    function setSectionSelectedDay(sectionId, day) {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      // Update calendar buttons in this section
+      const calendarButtons = section.querySelectorAll('[data-day]');
+      calendarButtons.forEach(btn => {
+        const btnDay = btn.getAttribute('data-day');
+        if (btnDay === 'extra' || btnDay === 'padding') return;
+        
+        const btnDayNum = Number(btnDay);
+        if (btnDayNum === day) {
+          btn.className = 'calendar-day-button m-1 rounded-md border text-sm flex items-center justify-center px-2 py-2 transition bg-blue-100 border-blue-500 font-semibold';
+        } else {
+          btn.className = 'calendar-day-button m-1 rounded-md border text-sm flex items-center justify-center px-2 py-2 transition hover:bg-gray-100';
+        }
+      });
+
+      // Update price grid in this section
+      const priceCards = section.querySelectorAll('[data-card]');
+      priceCards.forEach(card => {
+        const cardDay = Number(card.getAttribute('data-card'));
+        if (cardDay === day) {
+          card.className = 'border rounded-md p-4 text-center shadow-sm transition cursor-pointer bg-blue-50 border-blue-500 ring-1 ring-blue-400';
+        } else {
+          card.className = 'border rounded-md p-4 text-center shadow-sm transition cursor-pointer bg-white';
+        }
+      });
+    }
+
+    function removeSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.remove();
+      }
+    }
+
+    function renderCalendars() {
+      const totalDays = 31; // Show only days 1-31
+      const days = Array.from({ length: totalDays }, (_, i) => i + 1);
+      const weeks = chunk(days, 7);
+
+      function calendarMarkup() {
+        return `
+          <div class="flex flex-col h-full">
+            <div class="sticky top-0 z-10 grid grid-cols-7 text-center text-xs font-semibold text-gray-500 bg-white border-b">
+              ${['Mo','Tu','We','Th','Fr','Sa','Su'].map(d => `<div class="py-2">${d}</div>`).join('')}
+            </div>
+            <div class="flex-1 overflow-y-auto rounded-lg border smooth-scroll bg-white">
+              <div class="grid grid-cols-7 auto-rows-[minmax(40px,1fr)] p-1">
+                ${weeks.map((week, wi) => week.map((day, di) => `
+                  <button
+                    data-day="${day}"
+                    class="calendar-day-button m-1 rounded-md border text-sm flex items-center justify-center px-2 py-2 transition ${selectedDay === day ? 'bg-blue-100 border-blue-500 font-semibold' : 'hover:bg-gray-100'}"
+                  >${day}</button>
+                `).join('')).join('')}
+                <!-- Add extra and padding buttons after day 31 -->
+                <button
+                  data-day="extra"
+                  class="calendar-extra-button m-1 rounded-md border text-sm flex items-center justify-center px-2 py-2 transition"
+                >Extra</button>
+                <button
+                  data-day="padding"
+                  class="calendar-padding-button m-1 rounded-md border text-sm flex items-center justify-center px-2 py-2 transition"
+                >Padding</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      const desktop = document.getElementById('desktopCalendar');
+      const mobile = document.getElementById('mobileCalendar');
+      if (desktop) desktop.innerHTML = calendarMarkup();
+      if (mobile) mobile.innerHTML = calendarMarkup();
+
+      // Attach click handlers
+      document.querySelectorAll('[data-day]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const day = e.currentTarget.getAttribute('data-day');
+          if (day === 'extra' || day === 'padding') {
+            // Handle special buttons - just log for now
+            console.log(`Clicked ${day} button`);
+            return;
+          }
+          const dayNum = Number(day);
+          setSelectedDay(dayNum);
+        });
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('priceGrid');
+      grid.innerHTML = pricingData.map((price, idx) => {
+        const day = idx + 1;
+        const isSelected = day === selectedDay;
+        return `
+          <div
+            data-card="${day}"
+            class="border rounded-md p-4 text-center shadow-sm transition cursor-pointer ${isSelected ? 'bg-blue-50 border-blue-500 ring-1 ring-blue-400' : 'bg-white'}"
+          >
+            <div class="text-sm font-semibold">Day ${day}</div>
+            <div class="mt-1 text-base font-bold">£${price.toFixed(2)}</div>
+          </div>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('[data-card]').forEach(card => {
+        card.addEventListener('click', (e) => {
+          const day = Number(e.currentTarget.getAttribute('data-card'));
+          setSelectedDay(day);
+        });
+      });
+    }
+
+    function updateMobileSummary() {
+      const el = document.getElementById('mobileSelected');
+      if (el) {
+        const price = pricingData[selectedDay - 1] ?? 0;
+        el.textContent = `Day ${selectedDay} • £${price.toFixed(2)}`;
+      }
+    }
+
+    function setSelectedDay(day) {
+      selectedDay = day;
+      renderCalendars();
+      renderGrid();
+      updateMobileSummary();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function init() {
+      renderCalendars();
+      renderGrid();
+      updateMobileSummary();
+      
+      // Add event listener for Add New button
+      const addNewBtn = document.getElementById('addNewBtn');
+      if (addNewBtn) {
+        addNewBtn.addEventListener('click', createNewSection);
+      }
+      
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

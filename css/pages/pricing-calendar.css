@@ -1,0 +1,50 @@
+/* Pricing Calendar Page Specific Styles */
+
+/* Custom button styling for extra and padding buttons */
+.calendar-extra-button,
+.calendar-padding-button {
+  grid-column: span 2;
+  cursor: pointer;
+}
+
+/* Ensure normal day buttons maintain their single column span */
+.calendar-day-button {
+  grid-column: span 1;
+}
+
+/* Styles for additional sections */
+.additional-section {
+  position: relative;
+  margin-top: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+/* Close button for sections */
+.close-section-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.close-section-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Section content padding */
+.section-content {
+  padding: 1rem;
+}
